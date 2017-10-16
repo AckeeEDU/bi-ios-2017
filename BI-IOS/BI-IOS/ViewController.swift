@@ -11,9 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 
     weak var fireButton: UIButton!
+    weak var contentView: UIView!
     
     override func loadView() {
         super.loadView()
+        
+        let contentView = UIView(frame: view.bounds)
+        view.addSubview(contentView)
+        self.contentView = contentView
         
         let fireButton = UIButton(frame: CGRect(x: 20, y: 40, width: 100, height: 40))
         fireButton.setTitle("Fire", for: .normal)
@@ -21,11 +26,6 @@ class ViewController: UIViewController {
         fireButton.backgroundColor = .black
         view.addSubview(fireButton)
         self.fireButton = fireButton
-        
-        let aView = UIView(frame: CGRect(x: 60, y: 150, width: 120, height: 200))
-        aView.backgroundColor = UIColor(red: 0.72, green: 0.23, blue: 0.48, alpha: 1)
-        aView.layer.cornerRadius = 20
-        view.addSubview(aView)
     }
     
     override func viewDidLoad() {
@@ -35,12 +35,24 @@ class ViewController: UIViewController {
     }
 
     @objc func fireButtonTapped(_ sender: UIButton) {
-        let randomIntFrom0to100 = Int(arc4random_uniform(100))
-        let randomFloat = Float(arc4random())/Float(UInt32.max)
-        print("Fire! \(randomIntFrom0to100)   \(randomFloat)")
         
-        // aView.subviews
-        // aView.removeFromSuperview()
+        contentView.subviews.forEach { $0.removeFromSuperview() }
+        
+        for _ in 1...20 {
+            
+            let size = CGFloat(arc4random_uniform(UInt32(view.bounds.width/2)))
+            let x = CGFloat(arc4random_uniform(UInt32(view.bounds.width-size)))
+            let y = CGFloat(arc4random_uniform(UInt32(view.bounds.height-size)))
+            
+            let red = CGFloat(arc4random())/CGFloat(UInt32.max)
+            let green = CGFloat(arc4random())/CGFloat(UInt32.max)
+            let blue = CGFloat(arc4random())/CGFloat(UInt32.max)
+            
+            let aView = UIView(frame: CGRect(x: x, y: y, width: size, height: size))
+            aView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+            aView.layer.cornerRadius = size/2
+            contentView.addSubview(aView)
+        }
     }
     
 }
