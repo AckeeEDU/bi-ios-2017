@@ -7,52 +7,23 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
-    weak var fireButton: UIButton!
-    weak var contentView: UIView!
+    @IBOutlet weak var label: UILabel!
     
     override func loadView() {
         super.loadView()
         
-        let contentView = UIView(frame: view.bounds)
-        view.addSubview(contentView)
-        self.contentView = contentView
+        // self.label is defined in Main.storyboard
         
-        let fireButton = UIButton(frame: CGRect(x: 20, y: 40, width: 100, height: 40))
-        fireButton.setTitle("Fire", for: .normal)
-        fireButton.setTitleColor(.white, for: .normal)
-        fireButton.backgroundColor = .black
-        view.addSubview(fireButton)
-        self.fireButton = fireButton
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fireButton.addTarget(self, action: #selector(fireButtonTapped(_:)), for: .touchUpInside)
-    }
-
-    @objc func fireButtonTapped(_ sender: UIButton) {
-        
-        contentView.subviews.forEach { $0.removeFromSuperview() }
-        
-        for _ in 1...20 {
-            
-            let size = CGFloat(arc4random_uniform(UInt32(view.bounds.width/2)))
-            let x = CGFloat(arc4random_uniform(UInt32(view.bounds.width-size)))
-            let y = CGFloat(arc4random_uniform(UInt32(view.bounds.height-size)))
-            
-            let red = CGFloat(arc4random())/CGFloat(UInt32.max)
-            let green = CGFloat(arc4random())/CGFloat(UInt32.max)
-            let blue = CGFloat(arc4random())/CGFloat(UInt32.max)
-            
-            let aView = UIView(frame: CGRect(x: x, y: y, width: size, height: size))
-            aView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
-            aView.layer.cornerRadius = size/2
-            contentView.addSubview(aView)
-        }
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
     
 }

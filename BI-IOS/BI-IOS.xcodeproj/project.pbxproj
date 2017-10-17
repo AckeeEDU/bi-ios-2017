@@ -13,6 +13,7 @@
 		88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867101F8B8E1A00345E71 /* Main.storyboard */; };
 		88B867141F8B8E1A00345E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B867131F8B8E1A00345E71 /* Assets.xcassets */; };
 		88B867171F8B8E1A00345E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867151F8B8E1A00345E71 /* LaunchScreen.storyboard */; };
+		88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92CEE1F95D8B5005F7962 /* BubblesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		88B867131F8B8E1A00345E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88B867161F8B8E1A00345E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B867181F8B8E1A00345E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88D92CEE1F95D8B5005F7962 /* BubblesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblesViewController.swift; sourceTree = "<group>"; };
 		A0CD1D2425FC01BFA6FC7072 /* Pods-BI-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BI-IOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BI_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9136B43AAF305E259334D01 /* Pods-BI-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BI-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				88B867131F8B8E1A00345E71 /* Assets.xcassets */,
 				88B867151F8B8E1A00345E71 /* LaunchScreen.storyboard */,
 				88B867181F8B8E1A00345E71 /* Info.plist */,
+				88D92CEE1F95D8B5005F7962 /* BubblesViewController.swift */,
 			);
 			path = "BI-IOS";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,
+				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
