@@ -30,6 +30,25 @@ class ViewController: UIViewController {
         let height = NSLayoutConstraint(item: greenView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
         view.addConstraints([leading, trailing, top])
         greenView.addConstraint(height)
+        
+        // Layout definition using SnapKit
+        let redView = UIView()
+        redView.backgroundColor = .red
+        view.addSubview(redView)
+        redView.snp.makeConstraints { make in
+            make.leading.equalTo(10)
+            make.top.equalTo(greenView.snp.bottom).offset(20)
+            make.height.equalTo(200)
+        }
+        
+        let blueView = UIView()
+        blueView.backgroundColor = .blue
+        view.addSubview(blueView)
+        blueView.snp.makeConstraints { make in
+            make.leading.equalTo(redView.snp.trailing).offset(20)
+            make.top.height.width.equalTo(redView)
+            make.trailing.equalTo(-10)
+        }
     }
     
     override func viewDidLoad() {
