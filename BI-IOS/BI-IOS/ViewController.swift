@@ -49,6 +49,25 @@ class ViewController: UIViewController {
             make.top.height.width.equalTo(redView)
             make.trailing.equalTo(-10)
         }
+        
+        let image = UIImage(named: "avatar")
+        let imageView = UIImageView(image: image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.leading.equalTo(10)
+            make.top.equalTo(blueView.snp.bottom)
+        }
+        
+        let nameLabel = UILabel()
+        nameLabel.text = "Jan Mísař"
+        nameLabel.backgroundColor = .yellow
+        view.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(imageView.snp.trailing).offset(15)
+            make.top.equalTo(imageView)
+            make.trailing.equalTo(-10)
+        }
+        nameLabel.setContentHuggingPriority(.required, for: .horizontal)
     }
     
     override func viewDidLoad() {
