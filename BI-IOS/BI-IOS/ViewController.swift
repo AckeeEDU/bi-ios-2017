@@ -71,6 +71,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "ViewController"
+        
         print("ViewController did load.")
     }
     

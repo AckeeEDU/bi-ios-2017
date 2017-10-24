@@ -39,13 +39,16 @@ class BubblesViewController: UIViewController {
         view.addSubview(pushButton)
         pushButton.snp.makeConstraints { make in
             make.trailing.equalTo(-10)
-            make.top.equalTo(40)
+            make.top.equalTo(self.topLayoutGuide.snp.bottom).offset(10)
         }
         self.pushButton = pushButton
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Bubbles viewControler"
+        
         
         fireButton.addTarget(self, action: #selector(fireButtonTapped(_:)), for: .touchUpInside)
         pushButton.addTarget(self, action: #selector(pushButtonTapped(_:)), for: .touchUpInside)
