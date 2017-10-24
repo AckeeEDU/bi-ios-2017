@@ -17,9 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UINavigationBar.appearance().backgroundColor = .red
+        UITabBar.appearance().tintColor = .red
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: BubblesViewController())
+        
+        let bubblesController = UINavigationController(rootViewController: BubblesViewController())
+        bubblesController.tabBarItem.title = "Bubbles"
+        bubblesController.tabBarItem.image = #imageLiteral(resourceName: "tabbaricon")
+        bubblesController.tabBarItem.badgeValue = "2"
+        
+        let viewController = ViewController()
+        
+        let viewController2 = ViewController()
+        let viewController3 = ViewController()
+        let viewController4 = ViewController()
+        let viewController5 = ViewController()
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [bubblesController, viewController, viewController2, viewController3, viewController4, viewController5]
+        
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true

@@ -73,6 +73,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "ViewController"
+        tabBarItem.title = "ViewController"
         
         print("ViewController did load.")
     }

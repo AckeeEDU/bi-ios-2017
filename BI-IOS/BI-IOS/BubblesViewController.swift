@@ -49,7 +49,6 @@ class BubblesViewController: UIViewController {
         
         navigationItem.title = "Bubbles viewControler"
         
-        
         fireButton.addTarget(self, action: #selector(fireButtonTapped(_:)), for: .touchUpInside)
         pushButton.addTarget(self, action: #selector(pushButtonTapped(_:)), for: .touchUpInside)
         print("BubblesViewController did load.")
