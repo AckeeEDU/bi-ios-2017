@@ -7,52 +7,73 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
-    weak var fireButton: UIButton!
-    weak var contentView: UIView!
+    @IBOutlet weak var label: UILabel!
     
     override func loadView() {
         super.loadView()
         
-        let contentView = UIView(frame: view.bounds)
-        view.addSubview(contentView)
-        self.contentView = contentView
+        // self.label is defined in Main.storyboard
         
-        let fireButton = UIButton(frame: CGRect(x: 20, y: 40, width: 100, height: 40))
-        fireButton.setTitle("Fire", for: .normal)
-        fireButton.setTitleColor(.white, for: .normal)
-        fireButton.backgroundColor = .black
-        view.addSubview(fireButton)
-        self.fireButton = fireButton
+        // Layout definition using basic NSLayoutConstraints
+        let greenView = UIView()
+        greenView.backgroundColor = .green
+        view.addSubview(greenView)
+        
+        greenView.translatesAutoresizingMaskIntoConstraints = false
+        let leading = NSLayoutConstraint(item: greenView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10)
+        let trailing = NSLayoutConstraint(item: greenView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -10)
+        let top = NSLayoutConstraint(item: greenView, attribute: .top, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: 10)
+        let height = NSLayoutConstraint(item: greenView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraints([leading, trailing, top])
+        greenView.addConstraint(height)
+        
+        // Layout definition using SnapKit
+        let redView = UIView()
+        redView.backgroundColor = .red
+        view.addSubview(redView)
+        redView.snp.makeConstraints { make in
+            make.leading.equalTo(10)
+            make.top.equalTo(greenView.snp.bottom).offset(20)
+            make.height.equalTo(200)
+        }
+        
+        let blueView = UIView()
+        blueView.backgroundColor = .blue
+        view.addSubview(blueView)
+        blueView.snp.makeConstraints { make in
+            make.leading.equalTo(redView.snp.trailing).offset(20)
+            make.top.height.width.equalTo(redView)
+            make.trailing.equalTo(-10)
+        }
+        
+        let image = UIImage(named: "avatar")
+        let imageView = UIImageView(image: image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.leading.equalTo(10)
+            make.top.equalTo(blueView.snp.bottom)
+        }
+        
+        let nameLabel = UILabel()
+        nameLabel.text = "Jan Mísař"
+        nameLabel.backgroundColor = .yellow
+        view.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(imageView.snp.trailing).offset(15)
+            make.top.equalTo(imageView)
+            make.trailing.equalTo(-10)
+        }
+        nameLabel.setContentHuggingPriority(.required, for: .horizontal)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fireButton.addTarget(self, action: #selector(fireButtonTapped(_:)), for: .touchUpInside)
-    }
-
-    @objc func fireButtonTapped(_ sender: UIButton) {
-        
-        contentView.subviews.forEach { $0.removeFromSuperview() }
-        
-        for _ in 1...20 {
-            
-            let size = CGFloat(arc4random_uniform(UInt32(view.bounds.width/2)))
-            let x = CGFloat(arc4random_uniform(UInt32(view.bounds.width-size)))
-            let y = CGFloat(arc4random_uniform(UInt32(view.bounds.height-size)))
-            
-            let red = CGFloat(arc4random())/CGFloat(UInt32.max)
-            let green = CGFloat(arc4random())/CGFloat(UInt32.max)
-            let blue = CGFloat(arc4random())/CGFloat(UInt32.max)
-            
-            let aView = UIView(frame: CGRect(x: x, y: y, width: size, height: size))
-            aView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
-            aView.layer.cornerRadius = size/2
-            contentView.addSubview(aView)
-        }
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
     
 }
