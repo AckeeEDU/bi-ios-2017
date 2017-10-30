@@ -29,8 +29,10 @@ class TableViewController : UIViewController {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        table.register(MyTableCell.self, forCellReuseIdentifier: "Cell")
+        table.tableFooterView = UIView()
         view.addSubview(table)
+        
         table.snp.makeConstraints { (make) in
             make.size.equalTo(view)
         }
@@ -83,11 +85,11 @@ extension TableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
