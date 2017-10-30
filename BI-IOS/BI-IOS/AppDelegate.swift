@@ -26,15 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bubblesController.tabBarItem.image = #imageLiteral(resourceName: "tabbaricon")
         bubblesController.tabBarItem.badgeValue = "2"
         
-        let viewController = ViewController()
-        
-        let viewController2 = ViewController()
-        let viewController3 = ViewController()
-        let viewController4 = ViewController()
-        let viewController5 = ViewController()
+        let table = TableViewController()
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [bubblesController, viewController, viewController2, viewController3, viewController4, viewController5]
+        tabBarController.viewControllers = [bubblesController, table]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
