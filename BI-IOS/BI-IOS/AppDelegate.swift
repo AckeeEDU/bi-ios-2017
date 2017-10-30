@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let table = TableViewController()
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [bubblesController, table]
+        tabBarController.viewControllers = [bubblesController, UINavigationController(rootViewController: table)]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

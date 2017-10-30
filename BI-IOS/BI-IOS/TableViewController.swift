@@ -63,7 +63,7 @@ extension TableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         configureCell(cell: cell, forRowAt: indexPath)
-        cell.textLabel?.text = "Ahoj bi-ios"
+        cell.textLabel?.text =  indexPath.row == 0   ? "Collection View" : "ScrollView"
         
         return cell
     }
@@ -77,6 +77,14 @@ extension TableViewController: UITableViewDataSource {
 extension TableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            let vc = CollectionController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            return
+        }
         return
     }
     
