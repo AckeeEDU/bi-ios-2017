@@ -17,6 +17,7 @@
 		B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40596421FA7A9D1000ED753 /* TableViewController.swift */; };
 		B475A6461FA7B286008369BC /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6451FA7B286008369BC /* MyCell.swift */; };
 		B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6471FA7BA2E008369BC /* CollectionController.swift */; };
+		B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6491FA861DD008369BC /* ScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B40596421FA7A9D1000ED753 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B475A6451FA7B286008369BC /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		B475A6471FA7BA2E008369BC /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
+		B475A6491FA861DD008369BC /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BI_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9136B43AAF305E259334D01 /* Pods-BI-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BI-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				B40596421FA7A9D1000ED753 /* TableViewController.swift */,
 				B475A6451FA7B286008369BC /* MyCell.swift */,
 				B475A6471FA7BA2E008369BC /* CollectionController.swift */,
+				B475A6491FA861DD008369BC /* ScrollViewController.swift */,
 			);
 			path = "BI-IOS";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
 				B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */,
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
+				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,
 				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 				B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */,

@@ -82,6 +82,9 @@ extension TableViewController: UITableViewDelegate {
         case 0:
             let vc = CollectionController()
             self.navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            let vc = ScrollViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             return
         }
