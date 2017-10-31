@@ -51,6 +51,8 @@ extension CollectionController: UICollectionViewDelegate {
     
 }
 
+
+
 // MARK: UICollectionView data source
 extension CollectionController : UICollectionViewDataSource{
     
@@ -62,7 +64,7 @@ extension CollectionController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 30
     }
 }
 
@@ -71,7 +73,11 @@ extension CollectionController : UICollectionViewDataSource{
 extension CollectionController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        if indexPath.item % 2 == 1 {
+            return CGSize(width: 50, height: 200)
+        } else {
+            return CGSize(width: 100, height: 100)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
