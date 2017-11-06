@@ -12,6 +12,7 @@ import UIKit
 class TableViewController : UIViewController {
     
     weak var tableView : UITableView!
+    var dataManager = DataManager()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nil);
@@ -43,6 +44,13 @@ class TableViewController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        dataManager.getReipes { _ in
+            
+        }
     }
     
     

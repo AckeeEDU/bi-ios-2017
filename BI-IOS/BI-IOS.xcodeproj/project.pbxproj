@@ -18,6 +18,7 @@
 		B475A6461FA7B286008369BC /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6451FA7B286008369BC /* MyCell.swift */; };
 		B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6471FA7BA2E008369BC /* CollectionController.swift */; };
 		B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6491FA861DD008369BC /* ScrollViewController.swift */; };
+		B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1658B1FB0E6FE00272E0C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B475A6451FA7B286008369BC /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		B475A6471FA7BA2E008369BC /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		B475A6491FA861DD008369BC /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		B4F1658B1FB0E6FE00272E0C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BI_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9136B43AAF305E259334D01 /* Pods-BI-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BI-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				B475A6451FA7B286008369BC /* MyCell.swift */,
 				B475A6471FA7BA2E008369BC /* CollectionController.swift */,
 				B475A6491FA861DD008369BC /* ScrollViewController.swift */,
+				B4F1658B1FB0E6FE00272E0C /* DataManager.swift */,
 			);
 			path = "BI-IOS";
 			sourceTree = "<group>";
@@ -181,10 +184,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
+				B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */,
 				B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */,
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
 				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
