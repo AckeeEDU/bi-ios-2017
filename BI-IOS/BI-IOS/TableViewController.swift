@@ -14,6 +14,8 @@ class TableViewController : UIViewController {
     weak var tableView : UITableView!
     var dataManager = DataManager()
     
+    var data = [Recipe]()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nil);
         self.title = "Table"
@@ -48,8 +50,9 @@ class TableViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        dataManager.getReipes { recipes in
-            print(recipes)
+        dataManager.getReipes { [weak self] recipes in
+            self?.data = recipes
+            self?.tableView.reloadData()
         }
     }
     
@@ -64,20 +67,17 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
         configureCell(cell: cell, forRowAt: indexPath)
-        cell.textLabel?.text =  indexPath.row == 0   ? "Collection View" : "ScrollView"
-        
         return cell
     }
     
     func configureCell(cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
+        cell.textLabel?.text = data[indexPath.row].name
     }
 }
 
