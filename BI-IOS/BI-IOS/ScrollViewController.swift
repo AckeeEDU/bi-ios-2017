@@ -39,19 +39,19 @@ class ScrollViewController : UIViewController {
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView)
-            make.width.equalTo(scrollView)
         }
         
         
-        /*let v = UIView()
+        let v = UIView()
         v.backgroundColor = .red
         contentView.addSubview(v)
         v.snp.makeConstraints { (make) in
             make.top.left.equalTo(20)
             make.bottom.equalTo(-20);
             make.width.equalTo(1000)
+            make.right.equalTo(-20)
             make.height.equalTo(50)
-        }*/
+        }
         
         //na tvrdo napisu velikost
         //scrollView.contentSize = CGSize(width: 1000, height: 2000)
