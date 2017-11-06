@@ -19,6 +19,7 @@
 		B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6471FA7BA2E008369BC /* CollectionController.swift */; };
 		B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475A6491FA861DD008369BC /* ScrollViewController.swift */; };
 		B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1658B1FB0E6FE00272E0C /* DataManager.swift */; };
+		B4F165901FB0FDD300272E0C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1658F1FB0FDD300272E0C /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B475A6471FA7BA2E008369BC /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		B475A6491FA861DD008369BC /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		B4F1658B1FB0E6FE00272E0C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		B4F1658F1FB0FDD300272E0C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BI_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9136B43AAF305E259334D01 /* Pods-BI-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BI-IOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 		88B8670B1F8B8E1A00345E71 /* BI-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				B4F1658E1FB0FDC600272E0C /* Model */,
 				88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */,
 				88B8670E1F8B8E1A00345E71 /* ViewController.swift */,
 				88B867101F8B8E1A00345E71 /* Main.storyboard */,
@@ -104,6 +107,14 @@
 				B4F1658B1FB0E6FE00272E0C /* DataManager.swift */,
 			);
 			path = "BI-IOS";
+			sourceTree = "<group>";
+		};
+		B4F1658E1FB0FDC600272E0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4F1658F1FB0FDD300272E0C /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
 				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,
+				B4F165901FB0FDD300272E0C /* Recipe.swift in Sources */,
 				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 				B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */,
 			);
