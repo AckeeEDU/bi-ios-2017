@@ -48,8 +48,8 @@ class TableViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        dataManager.getReipes { _ in
-            
+        dataManager.getReipes { recipes in
+            print(recipes)
         }
     }
     
