@@ -32,7 +32,7 @@ class TableViewController : UIViewController {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self
-        table.register(MyTableCell.self, forCellReuseIdentifier: "Cell")
+        table.register(RecipeTableCell.self, forCellReuseIdentifier: "Cell")
         table.tableFooterView = UIView()
         view.addSubview(table)
         
@@ -71,14 +71,12 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        configureCell(cell: cell, forRowAt: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RecipeTableCell
+        cell.recipe = data[indexPath.row]
         return cell
     }
     
-    func configureCell(cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.textLabel?.text = data[indexPath.row].name
-    }
+    
 }
 
 //MARK: UITableView delegate
