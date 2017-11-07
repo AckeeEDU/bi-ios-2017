@@ -50,7 +50,7 @@ class TableViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        dataManager.getReipes { [weak self] recipes in
+        dataManager.getRecipes { [weak self] recipes in
             self?.data = recipes
             self?.tableView.reloadData()
         }
