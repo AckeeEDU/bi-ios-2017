@@ -34,7 +34,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
+        helloAsyncWorld { (number) in
+            print(number)
+        }
+        
+        let method : (Int) -> () = { number in
+            print(1)
+        }
+        
+        helloAsyncWorld(callback: method)
+        
+        helloAsyncWorld(callback: myCallback)
+        
         return true
+        
+    }
+    
+    func myCallback(number: Int) {
+        print(number)
+    }
+    
+    func helloAsyncWorld(callback: (Int) -> ()) {
+        callback(1)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
