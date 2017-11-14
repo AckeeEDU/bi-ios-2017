@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
@@ -34,6 +34,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // nice pod for requesting permissions - https://github.com/nickoneill/PermissionScope
         
+        mapView.delegate = self
+        
         mapView.removeAnnotations(mapView.annotations)
         
         locations.forEach { locationDict in
@@ -44,6 +46,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.addAnnotation(annotation)
         }
         
+    }
+    
+    let reuseIdentifier = "reuseIdentifier"
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        
+        annotationView.image = #imageLiteral(resourceName: "pin")
+        
+        return annotationView
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
