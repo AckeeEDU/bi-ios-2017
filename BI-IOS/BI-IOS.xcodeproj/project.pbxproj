@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FAAAE85204BEB9ABDDF7A30 /* Pods_BI_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */; };
+		8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812B5341FBAC63F00DE8D70 /* MapViewController.swift */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
 		88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867101F8B8E1A00345E71 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8812B5341FBAC63F00DE8D70 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8812B5361FBAC71700DE8D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B8670E1F8B8E1A00345E71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		39FB78C355C73654FFC0AA32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8812B5361FBAC71700DE8D70 /* MapKit.framework */,
 				DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */,
 			);
 			name = Frameworks;
@@ -105,6 +109,7 @@
 				B475A6471FA7BA2E008369BC /* CollectionController.swift */,
 				B475A6491FA861DD008369BC /* ScrollViewController.swift */,
 				B4F1658B1FB0E6FE00272E0C /* DataManager.swift */,
+				8812B5341FBAC63F00DE8D70 /* MapViewController.swift */,
 			);
 			path = "BI-IOS";
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
 				B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */,
 				B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */,
+				8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */,
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
 				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,

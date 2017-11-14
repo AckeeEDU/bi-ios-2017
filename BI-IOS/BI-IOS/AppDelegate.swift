@@ -28,8 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let table = TableViewController()
         
+        let map = MapViewController()
+        map.tabBarItem.title = "Map"
+        
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [bubblesController, UINavigationController(rootViewController: table)]
+        tabBarController.viewControllers = [bubblesController, UINavigationController(rootViewController: table), map]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
