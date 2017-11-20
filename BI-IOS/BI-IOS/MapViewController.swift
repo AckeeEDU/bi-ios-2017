@@ -57,17 +57,44 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let tapLocation = gesture.location(in: mapView)
             let coordinate = mapView.convert(tapLocation, toCoordinateFrom: mapView)
             
+            presentTitleAlert(for: coordinate)
+        }
+    }
+    
+    func presentTitleAlert(for coordinate: CLLocationCoordinate2D) {
+        
+        // init alert controller
+        let alertController = UIAlertController(title: "Add title", message: "Insert a short title of new favorite position", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            // custumize added textField
+            // textField.textColor = ...
+        }
+        
+        // create actions
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+            let text = alertController.textFields?.first?.text
+            
             // create new location
             let favoriteLocation = FavoriteLocation()
             favoriteLocation.latitude = coordinate.latitude
             favoriteLocation.longitude = coordinate.longitude
+            favoriteLocation.title = text
             
             // add to list of locations
-            favoriteLocations.append(favoriteLocation)
+            self?.favoriteLocations.append(favoriteLocation)
             
             // add to map
-            mapView.addAnnotation(favoriteLocation)
+            self?.mapView.addAnnotation(favoriteLocation)
         }
+        
+        // add actions
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        // present
+        present(alertController, animated: true, completion: nil)
     }
     
     let reuseIdentifier = "reuseIdentifier"
