@@ -20,3 +20,22 @@ branch: `02-autolayout`
 - Úprava constraints v runtime (install, uninstall)
 - jednoduché animování autolayoutu
 - `UIStackView`
+
+## 3. ViewControllers
+branch: `03-viewcontrollers`
+- Size classes
+  - `regular` vs `compact`
+  - `traitCollectionDidChange()`
+- UIViewController lifecycle
+  - init
+  - loadView
+  - viewDidLoad
+  - willAppear/Disappear, didAppear/Disappear
+  - dealloc
+- UINavigationController
+  - Kontejner zajišťující "stack" navigaci mezi viewControllery 
+  - Princip stacku - push/pop
+  - `UINavigationBar`, `UINavigationItem`, `UIBarButtonItem`
+- UITabBarController
+  - Kontejner pro přepínání viewControllerů na stejné úrovni
+  - `UITabBar`, `UITabBarItem`
