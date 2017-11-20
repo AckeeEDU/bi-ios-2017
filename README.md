@@ -39,3 +39,22 @@ branch: `03-viewcontrollers`
 - UITabBarController
   - Kontejner pro přepínání viewControllerů na stejné úrovni
   - `UITabBar`, `UITabBarItem`
+
+## 4. ScrollViews
+branch: `04-scrollviews`
+
+## 5. Networking
+branch: `05-netowrking` 🙄
+
+## 6. Mapy a GPS
+branch: `06-map`
+- frameworky MapKit a CoreLocation
+- `MKMapView`
+- `CLLocationManager`
+  - získání povolení od uživatele (`NSLocationWhenInUseUsageDescription` v Info.plist)
+  - start/stop získávání pozice
+  - `CLLocationManagerDelegate`
+- protokol `MKAnnotation`
+- správa pinů na mapě, custom piny
+- callouts
+- geocoding/reverse geocoding - překlad GPS lokace na adresu a zpět
