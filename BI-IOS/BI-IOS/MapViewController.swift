@@ -45,6 +45,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             annotation.subtitle = "A location subtitle"
             mapView.addAnnotation(annotation)
         }
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(mapTapped(gesture:)))
+        mapView.addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    @objc func mapTapped(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .ended {
+            let tapLocation = gesture.location(in: mapView)
+            let coordinate = mapView.convert(tapLocation, toCoordinateFrom: mapView)
+            print(coordinate)
+        }
     }
     
     let reuseIdentifier = "reuseIdentifier"
