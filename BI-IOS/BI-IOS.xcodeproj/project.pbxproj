@@ -6,6 +6,20 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		881135B31FC2F7A9009A0B29 /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 881135B41FC2F7A9009A0B29 /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				881135B71FC2F7AD009A0B29 /* Mogenerator */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7FAAAE85204BEB9ABDDF7A30 /* Pods_BI_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */; };
 		881135B11FC2EFC3009A0B29 /* FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */; };
@@ -158,6 +172,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "ČVUT";
 				TargetAttributes = {
+					881135B31FC2F7A9009A0B29 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					88B867081F8B8E1A00345E71 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -178,6 +196,7 @@
 			projectRoot = "";
 			targets = (
 				88B867081F8B8E1A00345E71 /* BI-IOS */,
+				881135B31FC2F7A9009A0B29 /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -231,6 +250,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BI-IOS/Pods-BI-IOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		881135B71FC2F7AD009A0B29 /* Mogenerator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Mogenerator;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m \"BI-IOS/BI-IOS.xcdatamodeld/BI-IOS.xcdatamodel\" -O \"BI-IOS/Model\" --swift";
 			showEnvVarsInLog = 0;
 		};
 		C6CD7F456B2181A9A65039D7 /* [CP] Check Pods Manifest.lock */ = {
@@ -294,6 +328,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		881135B51FC2F7A9009A0B29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		881135B61FC2F7A9009A0B29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		88B867191F8B8E1A00345E71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,6 +484,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		881135B41FC2F7A9009A0B29 /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				881135B51FC2F7A9009A0B29 /* Debug */,
+				881135B61FC2F7A9009A0B29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		88B867041F8B8E1A00345E71 /* Build configuration list for PBXProject "BI-IOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
