@@ -15,6 +15,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
     
+    var favoriteLocations: [FavoriteLocation] = []
+    
     override func loadView() {
         super.loadView()
         
@@ -54,7 +56,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if gesture.state == .ended {
             let tapLocation = gesture.location(in: mapView)
             let coordinate = mapView.convert(tapLocation, toCoordinateFrom: mapView)
-            print(coordinate)
+            
+            // create new location
+            let favoriteLocation = FavoriteLocation()
+            favoriteLocation.latitude = coordinate.latitude
+            favoriteLocation.longitude = coordinate.longitude
+            
+            // add to list of locations
+            favoriteLocations.append(favoriteLocation)
+            
+            // add to map
+            mapView.addAnnotation(favoriteLocation)
         }
     }
     
