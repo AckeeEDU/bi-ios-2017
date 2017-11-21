@@ -85,6 +85,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             // add to list of locations
             self?.favoriteLocations.append(favoriteLocation)
             
+            
+            
             // add to map
             self?.mapView.addAnnotation(favoriteLocation)
         }

@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		7FAAAE85204BEB9ABDDF7A30 /* Pods_BI_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */; };
 		881135B11FC2EFC3009A0B29 /* FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */; };
+		881135DB1FC409B2009A0B29 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 881135D91FC409B2009A0B29 /* Model.xcdatamodeld */; };
 		8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812B5341FBAC63F00DE8D70 /* MapViewController.swift */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocation.swift; sourceTree = "<group>"; };
+		881135DA1FC409B2009A0B29 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8812B5341FBAC63F00DE8D70 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8812B5361FBAC71700DE8D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 			children = (
 				B4F1658F1FB0FDD300272E0C /* Recipe.swift */,
 				881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */,
+				881135D91FC409B2009A0B29 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				881135B11FC2EFC3009A0B29 /* FavoriteLocation.swift in Sources */,
 				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 				B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */,
+				881135DB1FC409B2009A0B29 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +516,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		881135D91FC409B2009A0B29 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				881135DA1FC409B2009A0B29 /* Model.xcdatamodel */,
+			);
+			currentVersion = 881135DA1FC409B2009A0B29 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 88B867011F8B8E1A00345E71 /* Project object */;
 }
