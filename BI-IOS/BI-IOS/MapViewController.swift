@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import MagicalRecord
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -76,16 +77,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
             let text = alertController.textFields?.first?.text
             
-            // create new location
-            let favoriteLocation = FavoriteLocation()
-            favoriteLocation.latitude = coordinate.latitude
-            favoriteLocation.longitude = coordinate.longitude
-            favoriteLocation.title = text
+            var favoriteLocation: FavoriteLocation!
+            MagicalRecord.save(blockAndWait: { localContext in
+                // create new location
+                favoriteLocation = FavoriteLocation.mr_createEntity(in: localContext)!
+                favoriteLocation.latitude = NSNumber(value: coordinate.latitude)
+                favoriteLocation.longitude = NSNumber(value: coordinate.longitude)
+                favoriteLocation.title = text
+            })
+            
+            favoriteLocation = favoriteLocation.mr_(in: NSManagedObjectContext.mr_default())
             
             // add to list of locations
             self?.favoriteLocations.append(favoriteLocation)
-            
-            
             
             // add to map
             self?.mapView.addAnnotation(favoriteLocation)

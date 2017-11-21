@@ -22,8 +22,11 @@
 
 /* Begin PBXBuildFile section */
 		7FAAAE85204BEB9ABDDF7A30 /* Pods_BI_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB8D39B905B12A8CCFB85EC /* Pods_BI_IOS.framework */; };
-		881135B11FC2EFC3009A0B29 /* FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */; };
 		881135DB1FC409B2009A0B29 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 881135D91FC409B2009A0B29 /* Model.xcdatamodeld */; };
+		881135E51FC40CEE009A0B29 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E11FC40CED009A0B29 /* User.swift */; };
+		881135E61FC40CEE009A0B29 /* FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E21FC40CED009A0B29 /* FavoriteLocation.swift */; };
+		881135E71FC40CEE009A0B29 /* _FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E31FC40CEE009A0B29 /* _FavoriteLocation.swift */; };
+		881135E81FC40CEE009A0B29 /* _User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E41FC40CEE009A0B29 /* _User.swift */; };
 		8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812B5341FBAC63F00DE8D70 /* MapViewController.swift */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
@@ -40,8 +43,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocation.swift; sourceTree = "<group>"; };
 		881135DA1FC409B2009A0B29 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		881135E11FC40CED009A0B29 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		881135E21FC40CED009A0B29 /* FavoriteLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteLocation.swift; sourceTree = "<group>"; };
+		881135E31FC40CEE009A0B29 /* _FavoriteLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _FavoriteLocation.swift; sourceTree = "<group>"; };
+		881135E41FC40CEE009A0B29 /* _User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _User.swift; sourceTree = "<group>"; };
 		8812B5341FBAC63F00DE8D70 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8812B5361FBAC71700DE8D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +99,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		881135E91FC40D1C009A0B29 /* dont touch this */ = {
+			isa = PBXGroup;
+			children = (
+				881135E31FC40CEE009A0B29 /* _FavoriteLocation.swift */,
+				881135E41FC40CEE009A0B29 /* _User.swift */,
+			);
+			path = "dont touch this";
+			sourceTree = "<group>";
+		};
 		88B867001F8B8E1A00345E71 = {
 			isa = PBXGroup;
 			children = (
@@ -135,9 +150,11 @@
 		B4F1658E1FB0FDC600272E0C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B4F1658F1FB0FDD300272E0C /* Recipe.swift */,
-				881135B01FC2EFC3009A0B29 /* FavoriteLocation.swift */,
+				881135E91FC40D1C009A0B29 /* dont touch this */,
+				881135E21FC40CED009A0B29 /* FavoriteLocation.swift */,
+				881135E11FC40CED009A0B29 /* User.swift */,
 				881135D91FC409B2009A0B29 /* Model.xcdatamodeld */,
+				B4F1658F1FB0FDD300272E0C /* Recipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,7 +284,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m \"BI-IOS/BI-IOS.xcdatamodeld/BI-IOS.xcdatamodel\" -O \"BI-IOS/Model\" --swift";
+			shellScript = "mogenerator -m \"BI-IOS/Model/Model.xcdatamodeld/Model.xcdatamodel\" -O \"BI-IOS/Model\" --swift";
 			showEnvVarsInLog = 0;
 		};
 		C6CD7F456B2181A9A65039D7 /* [CP] Check Pods Manifest.lock */ = {
@@ -295,17 +312,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881135E51FC40CEE009A0B29 /* User.swift in Sources */,
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
 				B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */,
 				B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */,
+				881135E81FC40CEE009A0B29 /* _User.swift in Sources */,
 				8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */,
+				881135E71FC40CEE009A0B29 /* _FavoriteLocation.swift in Sources */,
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
 				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,
 				B4F165901FB0FDD300272E0C /* Recipe.swift in Sources */,
-				881135B11FC2EFC3009A0B29 /* FavoriteLocation.swift in Sources */,
 				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 				B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */,
+				881135E61FC40CEE009A0B29 /* FavoriteLocation.swift in Sources */,
 				881135DB1FC409B2009A0B29 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
