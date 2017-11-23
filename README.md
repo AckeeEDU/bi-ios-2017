@@ -58,3 +58,28 @@ branch: `06-map`
 - správa pinů na mapě, custom piny
 - callouts
 - geocoding/reverse geocoding - překlad GPS lokace na adresu a zpět
+
+## 7. CoreData
+branch: `07-coredata`
+- CoreData stack
+  - `NSManagedObjectModel` - schéma DB
+  - `NSPersistentStore` - to, kam se to reálně fyzicky persistuje (SQLite, XML, Binary, InMemory)
+  - `NSPersistentStoreCoordinator` - spojuje store a model, zná model a ví jak podle něj číst/zapisovat do storu
+  - `NSManagedObjectContext` - pískoviště na kterém pracujeme a provedené změny následně ukládáme
+- Vytvoření modelu (DB schématu)
+- Model classes
+  - Xcode auto generated (políčko codegen při editaci modelu)
+  - *XCode* -> *Editor* -> *Create NSManagedObject subclass*
+  - mogenerator (https://github.com/rentzsch/mogenerator)
+- Inicializace stacku
+  - Xcode generated (checkbox *Use CoreData* při vytváření projektu)
+  - Kompletně custom init modelu, storu, coordinatoru atd.
+  - MagicalRecord init
+- MagicalRecord
+  - přednastavené kontexty - rootSaving (nesahat), default (pro selectování, observing)
+  - používání local kontextů pro změny
+    - `MagicalRecord.save { localContext in ... }`
+    - `.mr_createEntity(in:)`, `.mr_deleteEntity(in:)`
+  - fetch z DB
+    - `mr_findAll()` + další varianty s více parametry
+    - `NSPredicate`
