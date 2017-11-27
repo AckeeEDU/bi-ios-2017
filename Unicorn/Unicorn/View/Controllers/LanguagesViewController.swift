@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MagicalRecord
 
-class LanguagesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class LanguagesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     weak var tableView: UITableView!
     
-    var languages: [Language] = []
+    var languagesFRC: NSFetchedResultsController<Language>!
     
     override func loadView() {
         super.loadView()
@@ -28,6 +29,13 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let fetchRequest = NSFetchRequest<Language>(entityName: "Language")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+//        languagesFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: NSManagedObjectContext.mr_default(), sectionNameKeyPath: nil, cacheName: nil)
+//        _ = try? languagesFRC.performFetch()
+        
+        languagesFRC = Language.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: self) as! NSFetchedResultsController<Language> // again.. because of old objC API
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(LanguageTableViewCell.self, forCellReuseIdentifier: "LanguageTableViewCell")
@@ -37,24 +45,27 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     
     func refreshData() {
         APIService.shared.languages(success: { [weak self] value in
-            self?.languages = value
-            self?.tableView.reloadData()
+            // seems to be useless now 😏
         }, failure: { error in
             print(error) // what to do with error?
         })
         
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
+    
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languages.count
+        return languagesFRC.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! LanguageTableViewCell
         
-        cell.language = languages[indexPath.row]
+        cell.language = languagesFRC.object(at: indexPath)
         
         return cell
     }
@@ -62,7 +73,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = LanguageDetailViewController(language: languages[indexPath.row])
+        let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
         navigationController?.pushViewController(vc, animated: true)
     }
 }
