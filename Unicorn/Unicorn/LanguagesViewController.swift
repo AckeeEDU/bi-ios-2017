@@ -12,6 +12,8 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
 
     weak var tableView: UITableView!
     
+    var languages: [Language] = []
+    
     override func loadView() {
         super.loadView()
         
@@ -28,14 +30,15 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(LanguageTableViewCell.self, forCellReuseIdentifier: "LanguageTableViewCell")
         
         refreshData() // in viewDidLoad? what about manual refresh?
     }
     
     func refreshData() {
-        
-        APIService.shared.languages(success: { value in
-            print(value) // process value, reload table...
+        APIService.shared.languages(success: { [weak self] value in
+            self?.languages = value
+            self?.tableView.reloadData()
         }, failure: { error in
             print(error) // what to do with error?
         })
@@ -45,11 +48,15 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return languages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! LanguageTableViewCell
+        
+        cell.language = languages[indexPath.row]
+        
+        return cell
     }
     
     // MARK: UITableViewDelegate

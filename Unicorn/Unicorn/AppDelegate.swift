@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import MagicalRecord
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // setup CoreData
         MagicalRecord.setupAutoMigratingCoreDataStack() // automigrating? what is that..?
+        
+        // that standard small loading indicator in status bar - no, it's not there by default 🙄
+        NetworkActivityIndicatorManager.shared.isEnabled = true
         
         let vc = UINavigationController(rootViewController: LanguagesViewController())
         

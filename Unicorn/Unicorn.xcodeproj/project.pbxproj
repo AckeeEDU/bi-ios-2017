@@ -31,6 +31,7 @@
 		88F294FA1FCCB3E7007440E9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88F294F81FCCB3E7007440E9 /* Model.xcdatamodeld */; };
 		88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294FB1FCCB45D007440E9 /* _Language.swift */; };
 		88F294FE1FCCB45E007440E9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294FC1FCCB45E007440E9 /* Language.swift */; };
+		88FDA6E21FCCB98B00A9C85A /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E11FCCB98B00A9C85A /* LanguageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		88F294F91FCCB3E7007440E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		88F294FB1FCCB45D007440E9 /* _Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Language.swift; sourceTree = "<group>"; };
 		88F294FC1FCCB45E007440E9 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		88FDA6E11FCCB98B00A9C85A /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				88F294F71FCCB3D6007440E9 /* Model */,
+				88FDA6E11FCCB98B00A9C85A /* LanguageTableViewCell.swift */,
 				8877F5791FCC446B006F1484 /* AppDelegate.swift */,
 				88F294E21FCC4621007440E9 /* LanguagesViewController.swift */,
 				88F294E01FCC460E007440E9 /* BaseViewController.swift */,
@@ -260,12 +263,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Unicorn/Pods-Unicorn-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -286,6 +293,7 @@
 				88F294FA1FCCB3E7007440E9 /* Model.xcdatamodeld in Sources */,
 				88F294FE1FCCB45E007440E9 /* Language.swift in Sources */,
 				88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */,
+				88FDA6E21FCCB98B00A9C85A /* LanguageTableViewCell.swift in Sources */,
 				88F294E51FCC486C007440E9 /* APIService.swift in Sources */,
 				88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */,
 			);
