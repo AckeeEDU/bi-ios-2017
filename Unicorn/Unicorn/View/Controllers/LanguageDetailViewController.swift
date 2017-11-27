@@ -18,6 +18,8 @@ class LanguageDetailViewController: BaseViewController {
     
     let language: Language
     
+    private var playingObservation: NSKeyValueObservation? = nil
+    
     init(language: Language) {
         self.language = language
         
@@ -89,9 +91,18 @@ class LanguageDetailViewController: BaseViewController {
         if let flagUrlString = language.flag, let flagUrl = URL(string: flagUrlString) {
             imageView.af_setImage(withURL: flagUrl)
         }
+        
+        playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking, options: [.initial, .new, .old]) { (synthesizer, change) in
+            self.playButton.isHidden = synthesizer.isSpeaking
+            if synthesizer.isSpeaking {
+                self.playIndicator.startAnimating()
+            } else {
+                self.playIndicator.stopAnimating()
+            }
+        }
     }
 
     @objc func playButtonTapped(_ sender: UIButton) {
-        print("Play!")
+        SpeechSynthesizer.shared.speakSentence(language.sentence!, language: language.language_code!)
     }
 }
