@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -8,4 +8,6 @@ target 'Unicorn' do
   # Pods for Unicorn
   pod 'SnapKit', '~> 4.0'
   pod 'Alamofire', '~> 4.5'
+  pod 'MagicalRecord', '~> 2.3'
+  
 end
