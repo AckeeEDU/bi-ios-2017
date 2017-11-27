@@ -8,5 +8,6 @@ target 'BI-IOS' do
   # Pods for BI-IOS
   pod 'SnapKit', '~> 4.0'
   pod 'Alamofire'
+  pod 'MagicalRecord', '~> 2.3'
   
 end

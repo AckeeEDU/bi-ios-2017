@@ -9,11 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import MagicalRecord
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
+    
+    var favoriteLocations: [FavoriteLocation] = []
     
     override func loadView() {
         super.loadView()
@@ -38,13 +41,69 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         mapView.removeAnnotations(mapView.annotations)
         
-        locations.forEach { locationDict in
+        let locations = FavoriteLocation.mr_findAll() as! [FavoriteLocation]
+        // let predicate = NSPredicate(format: "date > %@ AND title == 'ahoj'", Date()) // just example
+        // let filteredLocations = FavoriteLocation.mr_findAllSorted(by: "title", ascending: true, with: predicate)
+        
+        locations.forEach { location in
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: locationDict["lat"]!, longitude: locationDict["lon"]!)
-            annotation.title = "A location"
-            annotation.subtitle = "A location subtitle"
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude!.doubleValue, longitude: location.longitude!.doubleValue)
+            annotation.title = location.title
             mapView.addAnnotation(annotation)
         }
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(mapTapped(gesture:)))
+        mapView.addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    @objc func mapTapped(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .ended {
+            let tapLocation = gesture.location(in: mapView)
+            let coordinate = mapView.convert(tapLocation, toCoordinateFrom: mapView)
+            
+            presentTitleAlert(for: coordinate)
+        }
+    }
+    
+    func presentTitleAlert(for coordinate: CLLocationCoordinate2D) {
+        
+        // init alert controller
+        let alertController = UIAlertController(title: "Add title", message: "Insert a short title of new favorite position", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            // custumize added textField
+            // textField.textColor = ...
+        }
+        
+        // create actions
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+            let text = alertController.textFields?.first?.text
+            
+            var favoriteLocation: FavoriteLocation!
+            MagicalRecord.save(blockAndWait: { localContext in
+                // create new location
+                favoriteLocation = FavoriteLocation.mr_createEntity(in: localContext)!
+                favoriteLocation.latitude = NSNumber(value: coordinate.latitude)
+                favoriteLocation.longitude = NSNumber(value: coordinate.longitude)
+                favoriteLocation.title = text
+            })
+            
+            favoriteLocation = favoriteLocation.mr_(in: NSManagedObjectContext.mr_default())
+            
+            // add to list of locations
+            self?.favoriteLocations.append(favoriteLocation)
+            
+            // add to map
+            self?.mapView.addAnnotation(favoriteLocation)
+        }
+        
+        // add actions
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        // present
+        present(alertController, animated: true, completion: nil)
     }
     
     let reuseIdentifier = "reuseIdentifier"
@@ -63,7 +122,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let button = UIButton(type: .detailDisclosure)
         annotationView.rightCalloutAccessoryView = button
         
-        annotationView.detailCalloutAccessoryView = UIImageView(image: #imageLiteral(resourceName: "pin"))
+        //annotationView.detailCalloutAccessoryView = UIImageView(image: #imageLiteral(resourceName: "pin"))
         
         annotationView.isDraggable = true // that's nonsense here of course 😏 - just for example
         
@@ -95,28 +154,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
     }
     
-    let locations = [
-        ["lat": 50.10155117, "lon": 14.50131164],
-        ["lat": 50.04845155, "lon": 14.40643163],
-        ["lat": 50.01436603, "lon": 14.48202576],
-        ["lat": 50.09773545, "lon": 14.42862526],
-        ["lat": 50.02386574, "lon": 14.418157],
-        ["lat": 50.10891206, "lon": 14.50023615],
-        ["lat": 50.13137991, "lon": 14.43188124],
-        ["lat": 50.03085971, "lon": 14.43437316],
-        ["lat": 50.05523586, "lon": 14.36531867],
-        ["lat": 50.12467219, "lon": 14.39459484],
-        ["lat": 50.00616185, "lon": 14.41959398],
-        ["lat": 50.06693629, "lon": 14.43925259],
-        ["lat": 50.08936261, "lon": 14.53516745],
-        ["lat": 50.03396537, "lon": 14.48803967],
-        ["lat": 50.06252636, "lon": 14.49942098],
-        ["lat": 50.01692711, "lon": 14.37874073],
-        ["lat": 50.07238541, "lon": 14.37937722],
-        ["lat": 50.02807288, "lon": 14.51289626],
-        ["lat": 50.0276592, "lon": 14.48751812],
-        ["lat": 50.1340302, "lon": 14.45877785]
-    ]
+//    let locations = [
+//        ["lat": 50.10155117, "lon": 14.50131164],
+//        ["lat": 50.04845155, "lon": 14.40643163],
+//        ["lat": 50.01436603, "lon": 14.48202576],
+//        ["lat": 50.09773545, "lon": 14.42862526],
+//        ["lat": 50.02386574, "lon": 14.418157],
+//        ["lat": 50.10891206, "lon": 14.50023615],
+//        ["lat": 50.13137991, "lon": 14.43188124],
+//        ["lat": 50.03085971, "lon": 14.43437316],
+//        ["lat": 50.05523586, "lon": 14.36531867],
+//        ["lat": 50.12467219, "lon": 14.39459484],
+//        ["lat": 50.00616185, "lon": 14.41959398],
+//        ["lat": 50.06693629, "lon": 14.43925259],
+//        ["lat": 50.08936261, "lon": 14.53516745],
+//        ["lat": 50.03396537, "lon": 14.48803967],
+//        ["lat": 50.06252636, "lon": 14.49942098],
+//        ["lat": 50.01692711, "lon": 14.37874073],
+//        ["lat": 50.07238541, "lon": 14.37937722],
+//        ["lat": 50.02807288, "lon": 14.51289626],
+//        ["lat": 50.0276592, "lon": 14.48751812],
+//        ["lat": 50.1340302, "lon": 14.45877785]
+//    ]
     
 }
 
