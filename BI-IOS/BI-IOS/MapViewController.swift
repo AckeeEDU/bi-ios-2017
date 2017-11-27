@@ -42,6 +42,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.removeAnnotations(mapView.annotations)
         
         let locations = FavoriteLocation.mr_findAll() as! [FavoriteLocation]
+        // let predicate = NSPredicate(format: "date > %@ AND title == 'ahoj'", Date()) // just example
+        // let filteredLocations = FavoriteLocation.mr_findAllSorted(by: "title", ascending: true, with: predicate)
         
         locations.forEach { location in
             let annotation = MKPointAnnotation()
