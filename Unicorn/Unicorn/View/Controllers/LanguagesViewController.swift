@@ -62,6 +62,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // push detail...
+        let vc = LanguageDetailViewController(language: languages[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -33,6 +33,7 @@
 		88F294FE1FCCB45E007440E9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294FC1FCCB45E007440E9 /* Language.swift */; };
 		88FDA6E21FCCB98B00A9C85A /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E11FCCB98B00A9C85A /* LanguageTableViewCell.swift */; };
 		88FDA6E41FCCBE1B00A9C85A /* LanguageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E31FCCBE1B00A9C85A /* LanguageDetailViewController.swift */; };
+		88FDA6EB1FCCBF3500A9C85A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6EA1FCCBF3500A9C85A /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		88F294FC1FCCB45E007440E9 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		88FDA6E11FCCB98B00A9C85A /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
 		88FDA6E31FCCBE1B00A9C85A /* LanguageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetailViewController.swift; sourceTree = "<group>"; };
+		88FDA6EA1FCCBF3500A9C85A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				88F294E41FCC486C007440E9 /* APIService.swift */,
+				88FDA6EA1FCCBF3500A9C85A /* Theme.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				88F294FE1FCCB45E007440E9 /* Language.swift in Sources */,
 				88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */,
 				88FDA6E21FCCB98B00A9C85A /* LanguageTableViewCell.swift in Sources */,
+				88FDA6EB1FCCBF3500A9C85A /* Theme.swift in Sources */,
 				88F294E51FCC486C007440E9 /* APIService.swift in Sources */,
 				88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */,
 			);
