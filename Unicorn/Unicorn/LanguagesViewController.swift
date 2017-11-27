@@ -28,6 +28,18 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        refreshData()
+    }
+    
+    func refreshData() {
+        
+        APIService.shared.languages(success: { value in
+            print(value)
+        }, failure: { error in
+            print(error)
+        })
+        
     }
     
     // MARK: UITableViewDataSource

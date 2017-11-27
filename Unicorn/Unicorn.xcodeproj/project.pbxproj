@@ -13,6 +13,7 @@
 		8877F5841FCC446B006F1484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8877F5821FCC446B006F1484 /* LaunchScreen.storyboard */; };
 		88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E01FCC460E007440E9 /* BaseViewController.swift */; };
 		88F294E31FCC4621007440E9 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E21FCC4621007440E9 /* LanguagesViewController.swift */; };
+		88F294E51FCC486C007440E9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E41FCC486C007440E9 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8877F5851FCC446B006F1484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F294E01FCC460E007440E9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		88F294E21FCC4621007440E9 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
+		88F294E41FCC486C007440E9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				8877F5791FCC446B006F1484 /* AppDelegate.swift */,
 				88F294E21FCC4621007440E9 /* LanguagesViewController.swift */,
 				88F294E01FCC460E007440E9 /* BaseViewController.swift */,
+				88F294E41FCC486C007440E9 /* APIService.swift */,
 				8877F5801FCC446B006F1484 /* Assets.xcassets */,
 				8877F5821FCC446B006F1484 /* LaunchScreen.storyboard */,
 				8877F5851FCC446B006F1484 /* Info.plist */,
@@ -198,10 +201,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Unicorn/Pods-Unicorn-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +223,7 @@
 			files = (
 				8877F57A1FCC446B006F1484 /* AppDelegate.swift in Sources */,
 				88F294E31FCC4621007440E9 /* LanguagesViewController.swift in Sources */,
+				88F294E51FCC486C007440E9 /* APIService.swift in Sources */,
 				88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
