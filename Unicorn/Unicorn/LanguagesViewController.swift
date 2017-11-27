@@ -29,15 +29,15 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshData()
+        refreshData() // in viewDidLoad? what about manual refresh?
     }
     
     func refreshData() {
         
         APIService.shared.languages(success: { value in
-            print(value)
+            print(value) // process value, reload table...
         }, failure: { error in
-            print(error)
+            print(error) // what to do with error?
         })
         
     }
