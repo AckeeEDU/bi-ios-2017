@@ -6,6 +6,20 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		88F294ED1FCCB333007440E9 /* mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 88F294EE1FCCB333007440E9 /* Build configuration list for PBXAggregateTarget "mogenerator" */;
+			buildPhases = (
+				88F294F11FCCB345007440E9 /* mogenerator */,
+			);
+			dependencies = (
+			);
+			name = mogenerator;
+			productName = mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		58223991EC2F571538C129F6 /* Pods_Unicorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E627562A13B20546F7B678C /* Pods_Unicorn.framework */; };
 		8877F57A1FCC446B006F1484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8877F5791FCC446B006F1484 /* AppDelegate.swift */; };
@@ -14,6 +28,9 @@
 		88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E01FCC460E007440E9 /* BaseViewController.swift */; };
 		88F294E31FCC4621007440E9 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E21FCC4621007440E9 /* LanguagesViewController.swift */; };
 		88F294E51FCC486C007440E9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294E41FCC486C007440E9 /* APIService.swift */; };
+		88F294FA1FCCB3E7007440E9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88F294F81FCCB3E7007440E9 /* Model.xcdatamodeld */; };
+		88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294FB1FCCB45D007440E9 /* _Language.swift */; };
+		88F294FE1FCCB45E007440E9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F294FC1FCCB45E007440E9 /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +44,9 @@
 		88F294E01FCC460E007440E9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		88F294E21FCC4621007440E9 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		88F294E41FCC486C007440E9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		88F294F91FCCB3E7007440E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		88F294FB1FCCB45D007440E9 /* _Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Language.swift; sourceTree = "<group>"; };
+		88F294FC1FCCB45E007440E9 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +91,7 @@
 		8877F5781FCC446B006F1484 /* Unicorn */ = {
 			isa = PBXGroup;
 			children = (
+				88F294F71FCCB3D6007440E9 /* Model */,
 				8877F5791FCC446B006F1484 /* AppDelegate.swift */,
 				88F294E21FCC4621007440E9 /* LanguagesViewController.swift */,
 				88F294E01FCC460E007440E9 /* BaseViewController.swift */,
@@ -80,6 +101,24 @@
 				8877F5851FCC446B006F1484 /* Info.plist */,
 			);
 			path = Unicorn;
+			sourceTree = "<group>";
+		};
+		88F294F71FCCB3D6007440E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88F294FC1FCCB45E007440E9 /* Language.swift */,
+				88F294F81FCCB3E7007440E9 /* Model.xcdatamodeld */,
+				88F294FF1FCCB489007440E9 /* dont touch */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88F294FF1FCCB489007440E9 /* dont touch */ = {
+			isa = PBXGroup;
+			children = (
+				88F294FB1FCCB45D007440E9 /* _Language.swift */,
+			);
+			path = "dont touch";
 			sourceTree = "<group>";
 		};
 		C0CAF4EC53D8396F8DD43884 /* Pods */ = {
@@ -128,6 +167,10 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
+					88F294ED1FCCB333007440E9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 8877F5711FCC446B006F1484 /* Build configuration list for PBXProject "Unicorn" */;
@@ -144,6 +187,7 @@
 			projectRoot = "";
 			targets = (
 				8877F5751FCC446B006F1484 /* Unicorn */,
+				88F294ED1FCCB333007440E9 /* mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -178,6 +222,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		88F294F11FCCB345007440E9 /* mogenerator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = mogenerator;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m \"Unicorn/Model/Model.xcdatamodeld/Model.xcdatamodel\" -O \"Unicorn/Model\" --swift";
 		};
 		CDB254874BF0D1988E375CFA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -223,6 +281,9 @@
 			files = (
 				8877F57A1FCC446B006F1484 /* AppDelegate.swift in Sources */,
 				88F294E31FCC4621007440E9 /* LanguagesViewController.swift in Sources */,
+				88F294FA1FCCB3E7007440E9 /* Model.xcdatamodeld in Sources */,
+				88F294FE1FCCB45E007440E9 /* Language.swift in Sources */,
+				88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */,
 				88F294E51FCC486C007440E9 /* APIService.swift in Sources */,
 				88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */,
 			);
@@ -379,6 +440,22 @@
 			};
 			name = Release;
 		};
+		88F294EF1FCCB333007440E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88F294F01FCCB333007440E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -400,7 +477,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		88F294EE1FCCB333007440E9 /* Build configuration list for PBXAggregateTarget "mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88F294EF1FCCB333007440E9 /* Debug */,
+				88F294F01FCCB333007440E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		88F294F81FCCB3E7007440E9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				88F294F91FCCB3E7007440E9 /* Model.xcdatamodel */,
+			);
+			currentVersion = 88F294F91FCCB3E7007440E9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8877F56E1FCC446B006F1484 /* Project object */;
 }
