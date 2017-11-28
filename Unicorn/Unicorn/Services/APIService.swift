@@ -33,6 +33,11 @@ class APIService {
                         languages = Language.mr_import(from: languagesArray, in: localContext) as! [Language] // force cast because old objC API
                     }, completion: { (saved, error) in
                         if error == nil {
+                            
+//                            let languagesOnDefaultContext = languages.map { language in
+//                                return language.mr_(in: NSManagedObjectContext.mr_default())!
+//                            }
+                            
                             let languagesOnDefaultContext = languages.map { $0.mr_(in: NSManagedObjectContext.mr_default())! }
                             success(languagesOnDefaultContext)
                         } else {

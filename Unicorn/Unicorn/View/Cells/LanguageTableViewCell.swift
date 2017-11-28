@@ -19,8 +19,6 @@ class LanguageTableViewCell: UITableViewCell {
             
             if let flagUrlString = language?.flag, let flagUrl = URL(string: flagUrlString) {
                 flagImageView.af_setImage(withURL: flagUrl)
-            } else {
-                flagImageView.image = nil
             }
         }
     }
@@ -47,6 +45,11 @@ class LanguageTableViewCell: UITableViewCell {
         self.nameLabel = nameLabel
     }
 
+    override func prepareForReuse() {
+        // we should "reset" cell here, it is going to be reused in a moment
+        flagImageView.image = nil
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
