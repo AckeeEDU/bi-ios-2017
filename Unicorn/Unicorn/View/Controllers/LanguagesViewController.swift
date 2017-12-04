@@ -14,6 +14,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     weak var tableView: UITableView!
     
     var languagesFRC: NSFetchedResultsController<Language>!
+    var languagesVMs : [ListViewModel] = []
     
     override func loadView() {
         super.loadView()
@@ -53,6 +54,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.reloadData()
     }
     
@@ -76,7 +78,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        let vm = (tableView.cellForRow(at: indexPath) as! LanguageTableViewCell).viewModel?.seen = true
         
         let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
         navigationController?.pushViewController(vc, animated: true)

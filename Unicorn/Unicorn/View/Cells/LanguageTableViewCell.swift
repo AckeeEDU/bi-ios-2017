@@ -66,6 +66,7 @@ class LanguageTableViewCell: UITableViewCell {
         // we should "reset" cell here, it is going to be reused in a moment
         flagImageView.image = nil
         seenObservation = nil
+        accessoryType = .none
     }
     
     required init?(coder aDecoder: NSCoder) {
