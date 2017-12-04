@@ -65,7 +65,9 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! LanguageTableViewCell
         
-        cell.language = languagesFRC.object(at: indexPath)
+        let lang = languagesFRC.object(at: indexPath)
+        let vm = ListViewModel(model: lang)
+        cell.viewModel = vm
         
         return cell
     }
@@ -73,6 +75,9 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
         let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
         navigationController?.pushViewController(vc, animated: true)
     }

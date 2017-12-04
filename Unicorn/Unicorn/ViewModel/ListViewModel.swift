@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ListViewModel {
+class ListViewModel  : NSObject {
     
     private var model : Language
     
@@ -23,7 +23,7 @@ class ListViewModel {
         }
     }
     var flagImageURL : URL?
-    var seen = false
+    @objc dynamic var seen = false
     
     init (model: Language) {
         self.model = model
