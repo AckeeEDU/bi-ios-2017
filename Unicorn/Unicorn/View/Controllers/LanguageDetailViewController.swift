@@ -99,12 +99,12 @@ class LanguageDetailViewController: BaseViewController {
             imageView.af_setImage(withURL: flagUrl)
         }
         
-        playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking, options: [.initial, .new, .old]) { (synthesizer, change) in
-            self.playButton.isHidden = synthesizer.isSpeaking
+        playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking, options: [.initial, .new, .old]) { [weak self] (synthesizer, change) in
+            self?.playButton.isHidden = synthesizer.isSpeaking
             if synthesizer.isSpeaking {
-                self.playIndicator.startAnimating()
+                self?.playIndicator.startAnimating()
             } else {
-                self.playIndicator.stopAnimating()
+                self?.playIndicator.stopAnimating()
             }
         }
     }
