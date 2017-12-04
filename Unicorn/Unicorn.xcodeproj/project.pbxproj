@@ -35,6 +35,7 @@
 		88FDA6E41FCCBE1B00A9C85A /* LanguageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E31FCCBE1B00A9C85A /* LanguageDetailViewController.swift */; };
 		88FDA6EB1FCCBF3500A9C85A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6EA1FCCBF3500A9C85A /* Theme.swift */; };
 		88FDA6ED1FCCC7BC00A9C85A /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6EC1FCCC7BC00A9C85A /* SpeechSynthesizer.swift */; };
+		B4DFB01A1FD5CB770002CA24 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		88FDA6EA1FCCBF3500A9C85A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		88FDA6EC1FCCC7BC00A9C85A /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		8877F5781FCC446B006F1484 /* Unicorn */ = {
 			isa = PBXGroup;
 			children = (
+				B4DFB0181FD5B5E20002CA24 /* ViewModel */,
 				88F294F71FCCB3D6007440E9 /* Model */,
 				88FDA6E61FCCBE4300A9C85A /* Services */,
 				88FDA6E51FCCBE3B00A9C85A /* View */,
@@ -171,6 +174,14 @@
 				8877F5801FCC446B006F1484 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B4DFB0181FD5B5E20002CA24 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C0CAF4EC53D8396F8DD43884 /* Pods */ = {
@@ -339,6 +350,7 @@
 			files = (
 				8877F57A1FCC446B006F1484 /* AppDelegate.swift in Sources */,
 				88F294E31FCC4621007440E9 /* LanguagesViewController.swift in Sources */,
+				B4DFB01A1FD5CB770002CA24 /* ListViewModel.swift in Sources */,
 				88F294FA1FCCB3E7007440E9 /* Model.xcdatamodeld in Sources */,
 				88FDA6E41FCCBE1B00A9C85A /* LanguageDetailViewController.swift in Sources */,
 				88FDA6ED1FCCC7BC00A9C85A /* SpeechSynthesizer.swift in Sources */,
