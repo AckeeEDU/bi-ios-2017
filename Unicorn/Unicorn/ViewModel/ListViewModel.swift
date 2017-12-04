@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MagicalRecord
 
 class ListViewModel  : NSObject {
     
@@ -23,10 +24,18 @@ class ListViewModel  : NSObject {
         }
     }
     var flagImageURL : URL?
-    @objc dynamic var seen = false
+    var seen : Bool
     
     init (model: Language) {
         self.model = model
         self.flagImageURL = URL(string: model.flag!)
+        self.seen = model.seen.boolValue
+    }
+    
+    func setSeen() {
+        MagicalRecord.save(blockAndWait:  {(context) in
+            let local = self.model.mr_(in: context)!
+            local.seen = true
+        })
     }
 }
