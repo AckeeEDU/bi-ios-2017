@@ -15,11 +15,13 @@ class LanguageDetailViewController: BaseViewController {
     weak var sentenceLabel: UILabel!
     weak var playButton: UIButton!
     weak var playIndicator: UIActivityIndicatorView!
-    
+    weak var playCountLabel: UILabel!
+
     let viewModel: DetailViewModel
     
     private var playingObservation: NSKeyValueObservation? = nil
-    
+    private var playCountObservation: NSKeyValueObservation? = nil
+
     deinit {
         print("Deinit of LanguageVC")
     }
@@ -85,6 +87,14 @@ class LanguageDetailViewController: BaseViewController {
             make.center.equalTo(playButton)
         }
         self.playIndicator = playIndicator
+        
+        let playCountLabel = Theme.label(size: 25)
+        view.addSubview(playCountLabel)
+        playCountLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(playButton.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+        }
+        self.playCountLabel = playCountLabel
     }
     
     override func viewDidLoad() {
@@ -105,7 +115,12 @@ class LanguageDetailViewController: BaseViewController {
                 self?.playIndicator.startAnimating()
             } else {
                 self?.playIndicator.stopAnimating()
+                self?.viewModel.playCount += 1
             }
+        }
+        
+        playCountObservation = viewModel.observe(\DetailViewModel.playCount) { [weak self] vm, _ in
+            self?.playCountLabel.text = "\(vm.playCount)x"
         }
     }
 
