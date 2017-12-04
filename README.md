@@ -42,9 +42,18 @@ branch: `03-viewcontrollers`
 
 ## 4. ScrollViews
 branch: `04-scrollviews`
+- Framework UIKit 
+- Kontejnery s `UITableView`, `UICollectionView` a `UIScrollView`
+- Buňky `UItableViewCell`
+- Přechod pomocí `UINAvigationController`
 
 ## 5. Networking
-branch: `05-netowrking` 🙄
+branch: `05-netowrking` 
+- Stahování dat pomocí `Alamofire`
+- Mapování dat pomocí `Codeable` a `Decodeable`
+- Zobrazování těchto dat v tabulce 
+- postování dat na api
+- Práce s DataService
 
 ## 6. Mapy a GPS
 branch: `06-map`
