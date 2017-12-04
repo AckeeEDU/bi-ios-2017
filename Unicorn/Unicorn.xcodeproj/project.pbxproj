@@ -36,6 +36,7 @@
 		88FDA6EB1FCCBF3500A9C85A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6EA1FCCBF3500A9C85A /* Theme.swift */; };
 		88FDA6ED1FCCC7BC00A9C85A /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6EC1FCCC7BC00A9C85A /* SpeechSynthesizer.swift */; };
 		B4DFB01A1FD5CB770002CA24 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */; };
+		B4DFB01C1FD5F3940002CA24 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DFB01B1FD5F3940002CA24 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		88FDA6EC1FCCC7BC00A9C85A /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		8E627562A13B20546F7B678C /* Pods_Unicorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unicorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		B4DFB01B1FD5F3940002CA24 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				B4DFB0191FD5CB770002CA24 /* ListViewModel.swift */,
+				B4DFB01B1FD5F3940002CA24 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				88F294FE1FCCB45E007440E9 /* Language.swift in Sources */,
 				88F294FD1FCCB45E007440E9 /* _Language.swift in Sources */,
 				88FDA6E21FCCB98B00A9C85A /* LanguageTableViewCell.swift in Sources */,
+				B4DFB01C1FD5F3940002CA24 /* DetailViewModel.swift in Sources */,
 				88FDA6EB1FCCBF3500A9C85A /* Theme.swift in Sources */,
 				88F294E51FCC486C007440E9 /* APIService.swift in Sources */,
 				88F294E11FCC460E007440E9 /* BaseViewController.swift in Sources */,
