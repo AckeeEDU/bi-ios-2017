@@ -20,6 +20,13 @@ class LanguageDetailViewController: BaseViewController {
     
     private var playingObservation: NSKeyValueObservation? = nil
     
+    deinit {
+        print("Deinit of LanguageVC")
+    }
+    
+    let dummyArray = [Int](repeating: 1, count: 10_000_000)
+
+    
     init(language: Language) {
         self.language = language
         
@@ -82,7 +89,7 @@ class LanguageDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
         
         titleLabel.text = language.name
