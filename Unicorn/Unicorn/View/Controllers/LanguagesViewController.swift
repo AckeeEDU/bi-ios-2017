@@ -14,7 +14,6 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     weak var tableView: UITableView!
     
     var languagesFRC: NSFetchedResultsController<Language>!
-    var languagesVMs : [ListViewModel] = []
     
     override func loadView() {
         super.loadView()
@@ -35,11 +34,7 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
 //        languagesFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: NSManagedObjectContext.mr_default(), sectionNameKeyPath: nil, cacheName: nil)
 //        _ = try? languagesFRC.performFetch()
         
-        
-        languagesVMs = (Language.mr_findAll()?.map({ (object) in
-            let lang = object as! Language
-            return ListViewModel(model: lang)
-        }))!
+        languagesFRC = Language.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: self) as! NSFetchedResultsController<Language> // again.. because of old objC API
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -58,19 +53,21 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.reloadData()
     }
     
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languagesVMs.count
+        return languagesFRC.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! LanguageTableViewCell
         
-        let vm = languagesVMs[indexPath.row]
+        let lang = languagesFRC.object(at: indexPath)
+        let vm = ListViewModel(model: lang)
         cell.viewModel = vm
         
         return cell
@@ -79,8 +76,12 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        languagesVMs[indexPath.row].seen = true
-        let vc = LanguageDetailViewController(language: languagesVMs[indexPath.row].model)
+        
+        let vm = (tableView.cellForRow(at: indexPath) as! LanguageTableViewCell).viewModel!
+        vm.setSeen()
+        
+        
+        let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
         navigationController?.pushViewController(vc, animated: true)
     }
 }

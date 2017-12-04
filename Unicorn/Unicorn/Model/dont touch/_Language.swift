@@ -12,6 +12,8 @@ public enum LanguageAttributes: String {
     case longitude = "longitude"
     case name = "name"
     case sentence = "sentence"
+    case seen = "seen"
+
 }
 
 open class _Language: NSManagedObject {
@@ -60,6 +62,8 @@ open class _Language: NSManagedObject {
     @NSManaged open
     var sentence: String?
 
+    @NSManaged open
+    var seen: NSNumber
     // MARK: - Relationships
 
 }

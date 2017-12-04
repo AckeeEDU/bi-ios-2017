@@ -13,9 +13,6 @@ class LanguageTableViewCell: UITableViewCell {
     weak var flagImageView: UIImageView!
     weak var nameLabel: UILabel!
     
-    private var seenObservation: NSKeyValueObservation? = nil
-
-
     var language: Language? = nil {
         didSet {
             nameLabel.text = language?.name
@@ -32,10 +29,7 @@ class LanguageTableViewCell: UITableViewCell {
             if let url = viewModel?.flagImageURL {
                 flagImageView.af_setImage(withURL: url)
             }
-            
-            seenObservation = viewModel?.observe(\.seen, options: [.initial, .new], changeHandler: { [weak self] (vm, change) in
-                self?.accessoryType = vm.seen ? .checkmark : .none
-            })
+            accessoryType = viewModel!.seen ? .checkmark : .none
         }
     }
     
@@ -65,7 +59,6 @@ class LanguageTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         // we should "reset" cell here, it is going to be reused in a moment
         flagImageView.image = nil
-        seenObservation = nil
         accessoryType = .none
     }
     
