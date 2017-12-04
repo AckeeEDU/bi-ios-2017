@@ -35,7 +35,11 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
 //        languagesFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: NSManagedObjectContext.mr_default(), sectionNameKeyPath: nil, cacheName: nil)
 //        _ = try? languagesFRC.performFetch()
         
-        languagesFRC = Language.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: self) as! NSFetchedResultsController<Language> // again.. because of old objC API
+        
+        languagesVMs = (Language.mr_findAll()?.map({ (object) in
+            let lang = object as! Language
+            return ListViewModel(model: lang)
+        }))!
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -54,21 +58,19 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
         tableView.reloadData()
     }
     
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languagesFRC.fetchedObjects?.count ?? 0
+        return languagesVMs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as! LanguageTableViewCell
         
-        let lang = languagesFRC.object(at: indexPath)
-        let vm = ListViewModel(model: lang)
+        let vm = languagesVMs[indexPath.row]
         cell.viewModel = vm
         
         return cell
@@ -77,10 +79,8 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vm = (tableView.cellForRow(at: indexPath) as! LanguageTableViewCell).viewModel?.seen = true
-        
-        let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
+        languagesVMs[indexPath.row].seen = true
+        let vc = LanguageDetailViewController(language: languagesVMs[indexPath.row].model)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

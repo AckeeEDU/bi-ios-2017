@@ -11,7 +11,7 @@ import UIKit
 
 class ListViewModel  : NSObject {
     
-    private var model : Language
+    var model : Language
     
     
     var displayName : String  {

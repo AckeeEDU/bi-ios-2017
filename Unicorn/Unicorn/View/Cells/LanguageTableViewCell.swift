@@ -33,7 +33,7 @@ class LanguageTableViewCell: UITableViewCell {
                 flagImageView.af_setImage(withURL: url)
             }
             
-            seenObservation = viewModel?.observe(\.seen, changeHandler: { [weak self] (vm, change) in
+            seenObservation = viewModel?.observe(\.seen, options: [.initial, .new], changeHandler: { [weak self] (vm, change) in
                 self?.accessoryType = vm.seen ? .checkmark : .none
             })
         }
