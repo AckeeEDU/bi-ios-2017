@@ -13,7 +13,7 @@ import UIKit
 class DetailViewModel : ListViewModel {
     
     
-    
+    private var playingObservation: NSKeyValueObservation? = nil
     
     override var displayName: String {
         get {
@@ -25,6 +25,8 @@ class DetailViewModel : ListViewModel {
     
     @objc dynamic var playCount : Int = 0
     
+    var isPlaying : Bool = false
+
     var code : String
         
     override init (model: Language) {
@@ -32,5 +34,14 @@ class DetailViewModel : ListViewModel {
         self.code = model.language_code!
         super.init(model: model)
         
+        playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking) { [weak self] synt, _ in
+            self?.isPlaying = synt.isSpeaking
+        }
+        
+    }
+    
+    func playSentence() {
+        SpeechSynthesizer.shared.speakSentence(sentence, language: code)
+        playCount += 1
     }
 }

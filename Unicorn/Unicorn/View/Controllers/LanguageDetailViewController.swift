@@ -109,13 +109,12 @@ class LanguageDetailViewController: BaseViewController {
             imageView.af_setImage(withURL: url)
         }
         
-        playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking, options: [.initial, .new, .old]) { [weak self] (synthesizer, change) in
-            self?.playButton.isHidden = synthesizer.isSpeaking
-            if synthesizer.isSpeaking {
+        playingObservation = viewModel.observe(\.isPlaying, options: [.initial,.new]) { [weak self] (viewModel, _) in
+            self?.playButton.isHidden = viewModel.isPlaying
+            if viewModel.isPlaying {
                 self?.playIndicator.startAnimating()
             } else {
                 self?.playIndicator.stopAnimating()
-                self?.viewModel.playCount += 1
             }
         }
         
@@ -125,6 +124,6 @@ class LanguageDetailViewController: BaseViewController {
     }
 
     @objc func playButtonTapped(_ sender: UIButton) {
-        SpeechSynthesizer.shared.speakSentence(viewModel.sentence, language: viewModel.code)
+        viewModel.playSentence()
     }
 }
