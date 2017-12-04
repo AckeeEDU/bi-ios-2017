@@ -25,8 +25,11 @@ class DetailViewModel : ListViewModel {
     
     var playCount = 0
     
+    var code : String
+    
     override init (model: Language) {
         self.sentence = model.sentence!
+        self.code = model.language_code!
         super.init(model: model)
         
     }

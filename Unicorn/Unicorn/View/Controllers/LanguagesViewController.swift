@@ -80,8 +80,10 @@ class LanguagesViewController: BaseViewController, UITableViewDataSource, UITabl
         let vm = (tableView.cellForRow(at: indexPath) as! LanguageTableViewCell).viewModel!
         vm.setSeen()
         
+        let detailVM = DetailViewModel(model: vm.model)
         
-        let vc = LanguageDetailViewController(language: languagesFRC.object(at: indexPath))
+        
+        let vc = LanguageDetailViewController(viewModel: detailVM)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

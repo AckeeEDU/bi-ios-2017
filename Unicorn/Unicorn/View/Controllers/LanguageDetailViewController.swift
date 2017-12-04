@@ -16,7 +16,7 @@ class LanguageDetailViewController: BaseViewController {
     weak var playButton: UIButton!
     weak var playIndicator: UIActivityIndicatorView!
     
-    let language: Language
+    let viewModel: DetailViewModel
     
     private var playingObservation: NSKeyValueObservation? = nil
     
@@ -27,8 +27,8 @@ class LanguageDetailViewController: BaseViewController {
     let dummyArray = [Int](repeating: 1, count: 10_000_000)
 
     
-    init(language: Language) {
-        self.language = language
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -92,11 +92,11 @@ class LanguageDetailViewController: BaseViewController {
         
         playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
         
-        titleLabel.text = language.name
-        sentenceLabel.text = language.sentence
+        titleLabel.text = viewModel.displayName
+        sentenceLabel.text = viewModel.sentence
         
-        if let flagUrlString = language.flag, let flagUrl = URL(string: flagUrlString) {
-            imageView.af_setImage(withURL: flagUrl)
+        if let url = viewModel.flagImageURL {
+            imageView.af_setImage(withURL: url)
         }
         
         playingObservation = SpeechSynthesizer.shared.observe(\.isSpeaking, options: [.initial, .new, .old]) { [weak self] (synthesizer, change) in
@@ -110,6 +110,6 @@ class LanguageDetailViewController: BaseViewController {
     }
 
     @objc func playButtonTapped(_ sender: UIButton) {
-        SpeechSynthesizer.shared.speakSentence(language.sentence!, language: language.language_code!)
+        SpeechSynthesizer.shared.speakSentence(viewModel.sentence, language: viewModel.code)
     }
 }
