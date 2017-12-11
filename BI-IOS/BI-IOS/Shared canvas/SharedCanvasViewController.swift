@@ -41,14 +41,26 @@ class SharedCanvasViewController: UIViewController, CanvasViewDelegate {
 
         databaseReference = Database.database().reference().child("canvas")
         
+        canvasView.delegate = self
+        
         scrollView.panGestureRecognizer.minimumNumberOfTouches = 2
         scrollView.panGestureRecognizer.require(toFail: canvasView.drawingRecognizer)
+        
+        databaseReference.observe(.childAdded) { [weak self] snapshot in
+            guard let pathDict = snapshot.value as? [String: Any] else {
+                return
+            }
+            if let path = DrawingPath.deserialize(from: pathDict) {
+                self?.canvasView.add(path: path)
+            }
+        }
     }
 
     func canvasView(_ canvasView: CanvasView, didDrawPath path: DrawingPath) {
         
-//        let newPath = databaseReference.childByAutoId()
-//        newPath.setValue(...)
+        let newPath = databaseReference.childByAutoId()
+        path.key = newPath.key
+        newPath.setValue(path.serialize()) // completion, failure... chtělo by to ošetřit 🤔
         
     }
 }

@@ -10,14 +10,23 @@ import UIKit
 
 class DrawingPath {
     
+    var key: String?
     var points: [CGPoint] = []
     var color: UIColor = .black
     var lineWidth: CGFloat = 1
     
-    static func deserialize(from object: Any) -> DrawingPath {
+    static func deserialize(from object: [String: Any]) -> DrawingPath? {
         let result = DrawingPath()
         
-        // todo...
+        if let points = object["points"] as? [[String: Any]]  {
+            result.points = points.map { pointDict in
+                let x = pointDict["x"] as! CGFloat
+                let y = pointDict["y"] as! CGFloat
+                return CGPoint(x: x, y: y)
+            }
+        } else {
+            return nil
+        }
         
         return result
     }
