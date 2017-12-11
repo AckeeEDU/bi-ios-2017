@@ -51,8 +51,13 @@ class SharedCanvasViewController: UIViewController, CanvasViewDelegate {
                 return
             }
             if let path = DrawingPath.deserialize(from: pathDict) {
+                path.key = snapshot.key
                 self?.canvasView.add(path: path)
             }
+        }
+        
+        databaseReference.observe(.childRemoved) { [weak self] snapshot in
+            self?.canvasView.remove(pathKey: snapshot.key)
         }
     }
 
@@ -61,6 +66,5 @@ class SharedCanvasViewController: UIViewController, CanvasViewDelegate {
         let newPath = databaseReference.childByAutoId()
         path.key = newPath.key
         newPath.setValue(path.serialize()) // completion, failure... chtělo by to ošetřit 🤔
-        
     }
 }
