@@ -10,4 +10,6 @@ target 'BI-IOS' do
   pod 'Alamofire'
   pod 'MagicalRecord', '~> 2.3'
   
+  pod 'Firebase', '~> 4.7'
+  
 end
