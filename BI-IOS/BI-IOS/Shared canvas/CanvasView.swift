@@ -9,9 +9,15 @@
 import UIKit
 import CoreGraphics
 
+protocol CanvasViewDelegate: class {
+    func canvasView(_ canvasView: CanvasView, didDrawPath path: DrawingPath)
+}
+
 class CanvasView: UIView {
     
     weak var drawingRecognizer: UIPanGestureRecognizer!
+    
+    weak var delegate: CanvasViewDelegate?
     
     var paths: [DrawingPath] = []
     
@@ -47,10 +53,12 @@ class CanvasView: UIView {
         case .changed:
             currentPath?.points.append(point)
             break
-        case .cancelled, .ended, .failed:
+        case .ended:
+            delegate?.canvasView(self, didDrawPath: currentPath!)
             currentPath = nil
             break
         default:
+            currentPath = nil
             break
         }
         setNeedsDisplay()
