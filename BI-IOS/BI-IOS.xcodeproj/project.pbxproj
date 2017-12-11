@@ -30,6 +30,7 @@
 		8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812B5341FBAC63F00DE8D70 /* MapViewController.swift */; };
 		88A9D5C11FDEDA2B0010EFCD /* SharedCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */; };
 		88A9D5C41FDEDB650010EFCD /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C31FDEDB650010EFCD /* CanvasView.swift */; };
+		88A9D5C61FDEE1530010EFCD /* DrawingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C51FDEE1530010EFCD /* DrawingPath.swift */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
 		88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867101F8B8E1A00345E71 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		8812B5361FBAC71700DE8D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCanvasViewController.swift; sourceTree = "<group>"; };
 		88A9D5C31FDEDB650010EFCD /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		88A9D5C51FDEE1530010EFCD /* DrawingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPath.swift; sourceTree = "<group>"; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B8670E1F8B8E1A00345E71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */,
 				88A9D5C31FDEDB650010EFCD /* CanvasView.swift */,
+				88A9D5C51FDEE1530010EFCD /* DrawingPath.swift */,
 			);
 			path = "Shared canvas";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				881135E51FC40CEE009A0B29 /* User.swift in Sources */,
 				88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */,
 				B4F1658C1FB0E6FE00272E0C /* DataManager.swift in Sources */,
+				88A9D5C61FDEE1530010EFCD /* DrawingPath.swift in Sources */,
 				B475A6481FA7BA2E008369BC /* CollectionController.swift in Sources */,
 				881135E81FC40CEE009A0B29 /* _User.swift in Sources */,
 				8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */,
