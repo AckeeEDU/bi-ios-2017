@@ -31,6 +31,7 @@
 		88A9D5C11FDEDA2B0010EFCD /* SharedCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */; };
 		88A9D5C41FDEDB650010EFCD /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C31FDEDB650010EFCD /* CanvasView.swift */; };
 		88A9D5C61FDEE1530010EFCD /* DrawingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C51FDEE1530010EFCD /* DrawingPath.swift */; };
+		88A9D5C81FDEEC4E0010EFCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88A9D5C71FDEEC4E0010EFCD /* GoogleService-Info.plist */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
 		88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867101F8B8E1A00345E71 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCanvasViewController.swift; sourceTree = "<group>"; };
 		88A9D5C31FDEDB650010EFCD /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		88A9D5C51FDEE1530010EFCD /* DrawingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPath.swift; sourceTree = "<group>"; };
+		88A9D5C71FDEEC4E0010EFCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B8670E1F8B8E1A00345E71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				88B867131F8B8E1A00345E71 /* Assets.xcassets */,
 				88B867151F8B8E1A00345E71 /* LaunchScreen.storyboard */,
 				88B867181F8B8E1A00345E71 /* Info.plist */,
+				88A9D5C71FDEEC4E0010EFCD /* GoogleService-Info.plist */,
 				88D92CEE1F95D8B5005F7962 /* BubblesViewController.swift */,
 				B40596421FA7A9D1000ED753 /* TableViewController.swift */,
 				B475A6451FA7B286008369BC /* MyCell.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B867171F8B8E1A00345E71 /* LaunchScreen.storyboard in Resources */,
+				88A9D5C81FDEEC4E0010EFCD /* GoogleService-Info.plist in Resources */,
 				88B867141F8B8E1A00345E71 /* Assets.xcassets in Resources */,
 				88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */,
 			);
