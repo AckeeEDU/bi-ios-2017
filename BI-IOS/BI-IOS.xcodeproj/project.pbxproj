@@ -28,6 +28,8 @@
 		881135E71FC40CEE009A0B29 /* _FavoriteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E31FC40CEE009A0B29 /* _FavoriteLocation.swift */; };
 		881135E81FC40CEE009A0B29 /* _User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881135E41FC40CEE009A0B29 /* _User.swift */; };
 		8812B5351FBAC63F00DE8D70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812B5341FBAC63F00DE8D70 /* MapViewController.swift */; };
+		88A9D5C11FDEDA2B0010EFCD /* SharedCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */; };
+		88A9D5C41FDEDB650010EFCD /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9D5C31FDEDB650010EFCD /* CanvasView.swift */; };
 		88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */; };
 		88B8670F1F8B8E1A00345E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8670E1F8B8E1A00345E71 /* ViewController.swift */; };
 		88B867121F8B8E1A00345E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B867101F8B8E1A00345E71 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		881135E41FC40CEE009A0B29 /* _User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _User.swift; sourceTree = "<group>"; };
 		8812B5341FBAC63F00DE8D70 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8812B5361FBAC71700DE8D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCanvasViewController.swift; sourceTree = "<group>"; };
+		88A9D5C31FDEDB650010EFCD /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		88B867091F8B8E1A00345E71 /* BI-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BI-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B8670C1F8B8E1A00345E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B8670E1F8B8E1A00345E71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 			path = "dont touch this";
 			sourceTree = "<group>";
 		};
+		88A9D5C21FDEDA470010EFCD /* Shared canvas */ = {
+			isa = PBXGroup;
+			children = (
+				88A9D5C01FDEDA2B0010EFCD /* SharedCanvasViewController.swift */,
+				88A9D5C31FDEDB650010EFCD /* CanvasView.swift */,
+			);
+			path = "Shared canvas";
+			sourceTree = "<group>";
+		};
 		88B867001F8B8E1A00345E71 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 				B475A6491FA861DD008369BC /* ScrollViewController.swift */,
 				B4F1658B1FB0E6FE00272E0C /* DataManager.swift */,
 				8812B5341FBAC63F00DE8D70 /* MapViewController.swift */,
+				88A9D5C21FDEDA470010EFCD /* Shared canvas */,
 			);
 			path = "BI-IOS";
 			sourceTree = "<group>";
@@ -322,11 +336,13 @@
 				B475A6461FA7B286008369BC /* MyCell.swift in Sources */,
 				B475A64A1FA861DD008369BC /* ScrollViewController.swift in Sources */,
 				88B8670D1F8B8E1A00345E71 /* AppDelegate.swift in Sources */,
+				88A9D5C11FDEDA2B0010EFCD /* SharedCanvasViewController.swift in Sources */,
 				B4F165901FB0FDD300272E0C /* Recipe.swift in Sources */,
 				88D92CEF1F95D8B5005F7962 /* BubblesViewController.swift in Sources */,
 				B40596431FA7A9D1000ED753 /* TableViewController.swift in Sources */,
 				881135E61FC40CEE009A0B29 /* FavoriteLocation.swift in Sources */,
 				881135DB1FC409B2009A0B29 /* Model.xcdatamodeld in Sources */,
+				88A9D5C41FDEDB650010EFCD /* CanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

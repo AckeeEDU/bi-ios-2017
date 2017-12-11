@@ -32,10 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let table = TableViewController()
         
         let map = MapViewController()
-        map.tabBarItem.title = "Map"
+        map.title = "Map"
+        
+        let sharedCanvas = SharedCanvasViewController()
+        sharedCanvas.title = "Canvas"
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [bubblesController, UINavigationController(rootViewController: table), UINavigationController(rootViewController: map)]
+        tabBarController.viewControllers = [bubblesController, UINavigationController(rootViewController: table), UINavigationController(rootViewController: map), sharedCanvas]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
