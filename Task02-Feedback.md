@@ -2,13 +2,13 @@
 
 | Username | Body | Poznámky                                                     |
 | -------- | ---- | ------------------------------------------------------------ |
-| babusand | 19   | (-1) Neukládají se předvyplněné údaje o uživateli u checkinu |
-| jendrjan | 19   | (-1) Neukládají se předvyplněné údaje o uživateli u checkinu |
+| babusand | 20   |                                                              |
+| jendrjan | 20   |                                                              |
 | mattapet | 20   |                                                              |
-| paunkvoj | 19   | (-1) Nelze vložit checkin bez vyplněného genderu             |
-| pudisond | 14   | (-5) Projekt nešel zbuildit<br>(-1) Neukládají se předvyplněné údaje o uživateli u checkinu |
+| paunkvoj | 20   |                                                              |
+| pudisond | 15   | (-5) Projekt nešel zbuildit                                  |
 | tranaduc | 20   |                                                              |
-| zdvomjir |      | (-1) Nelze přidat checkin pouze s pozicí a časem             |
+| zdvomjir | 20   |                                                              |
 
 ## Připomínky ke kódu
 
