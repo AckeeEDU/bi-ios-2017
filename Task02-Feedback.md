@@ -3,17 +3,26 @@
 | Username | Body | Poznámky                                                     |
 | -------- | ---- | ------------------------------------------------------------ |
 | babusand | 20   |                                                              |
+| brianiva | --   | Není tlačítko, ale long press; nepoužívá se současná poloha  |
+| hacajiva | 15   | (-5) Projekt nejde po stažení zbuildit                       |
+| harasvoj | 20   |                                                              |
 | jendrjan | 20   |                                                              |
 | mattapet | 20   |                                                              |
 | paunkvoj | 20   |                                                              |
-| pudisond | 15   | (-5) Projekt nešel zbuildit                                  |
+| pudisond | 15   | (-5) Projekt nejde po stažení zbuildit                       |
+| solankar | 15   | (-2) Nemění se poloha při vytváření nového místa na mapě<br>(-2) Nezobrazují se všechny validní pozice<br>(-1) Špatně vypsané datum |
+| soukudom | --   | (-5) Projekt nejde po stažení zbuildit, tahá data z FB jenom jednou                   |
+| tomasvo1 | 20   |                                                              |
 | tranaduc | 20   |                                                              |
+| urbansim | 19   | (-1) Špatně vypsané datum                                    |
 | zdvomjir | 20   |                                                              |
 
 ## Připomínky ke kódu
 
 ### Maličkosti
 
+- středníky (`;`) do Swift nepatří
+- třídy / structy / enumy se pojmenovávají s velkým prvním písmenem
 - funkce / metoda, která nic nevrací, nemusí mít v definici `-> Void`, stačí pouze napsat `func foo()` místo `func foo() -> Void`
 - snažíme se vyhnout jakýmkoliv vykříčnikům
 ```swift
@@ -48,6 +57,7 @@ init(`for` checkin: Checkin) {
 
 - není potřeba všechny `Optional` typy rozbalovat, `view?.removeFromSuperview()` je validní zápis, který se provede, pokud `view` není `nil`
 - kopírování kódu je špatné, vždy to lze vyřešit funkcí / metodou, která přebírá nějaké parametry
+- **NIKDY** nepředáváme `view` jako závislost nějakému managerovi, který do něj potom něco nastaví, pro tyto případy slouží např. návrhový vzor `Delegate`
 
 ### Práce s formattery
 
