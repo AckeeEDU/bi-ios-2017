@@ -1,32 +1,15 @@
 # Feedback na druhý domácí úkol
 
-| Username | Body | Poznámky                                                     |
-| -------- | ---- | ------------------------------------------------------------ |
-| babusand | 20   |                                                              |
-| brianiva | --   | Není tlačítko, ale long press; nepoužívá se současná poloha  |
-| hacajiva | 15   | (-5) Projekt nejde po stažení zbuildit                       |
-| harasvoj | 20   |                                                              |
-| jendrjan | 20   |                                                              |
-| mattapet | 20   |                                                              |
-| paunkvoj | 20   |                                                              |
-| pudisond | 15   | (-5) Projekt nejde po stažení zbuildit                       |
-| solankar | 15   | (-2) Nemění se poloha při vytváření nového místa na mapě<br>(-2) Nezobrazují se všechny validní pozice<br>(-1) Špatně vypsané datum |
-| soukudom | --   | (-5) Projekt nejde po stažení zbuildit, tahá data z FB jenom jednou                   |
-| tomasvo1 | 20   |                                                              |
-| tranaduc | 20   |                                                              |
-| urbansim | 19   | (-1) Špatně vypsané datum                                    |
-| zdvomjir | 20   |                                                              |
+## Maličkosti
 
-## Připomínky ke kódu
-
-### Maličkosti
-
-- středníky (`;`) do Swift nepatří
+- **čtěte zadání**
+- Když se inspiruji nějakým příkladem, 
+- ukončující středníky (`;`) do Swift nepatří, je nutné je použít pouze v případě, že máme více příkazů na jedné řádce
 - třídy / structy / enumy se pojmenovávají s velkým prvním písmenem
 - funkce / metoda, která nic nevrací, nemusí mít v definici `-> Void`, stačí pouze napsat `func foo()` místo `func foo() -> Void`
 - snažíme se vyhnout jakýmkoliv vykříčnikům
 ```swift
-let name: String? = nil
+let name: String? = "Jan Novák"
 
 // Preffered
 if let username = user {
@@ -41,7 +24,7 @@ if name == nil { return }
 let username = name!
 ```
 - nepoužíváme `self` tam, kde je to z kontextu jasné
-- v `init`u nepoužíváme předložky, aby se celá metoda četla jako anglická věta, je potřebné vědět čím initializuji danou třídu
+- v `init`u nepoužíváme předložky, aby se celá metoda četla jako anglická věta, je potřebné vědět čím initializuji daný objekt
 
 ```swift
 // Preffered
@@ -59,9 +42,9 @@ init(`for` checkin: Checkin) {
 - kopírování kódu je špatné, vždy to lze vyřešit funkcí / metodou, která přebírá nějaké parametry
 - **NIKDY** nepředáváme `view` jako závislost nějakému managerovi, který do něj potom něco nastaví, pro tyto případy slouží např. návrhový vzor `Delegate`
 
-### Práce s formattery
+## Práce s formattery
 
-`DateFormatter` patří mezi drahé instance (stejně jako `NumberFormatter`), vždycky je potřeba si ji jednou vytvořit a předávat si instanci tam, kde je to potřeba. Vytvářet instanci `DateFormatter`u v cyklu tedy není správný přístup. V ideálním přístupu si vytvoříme objekt, který bude mít daný `DateFormatter` jako statickou proměnnou a dále pracujeme s tímto obalovacím objektem.
+`DateFormatter` patří mezi drahé instance (stejně jako `NumberFormatter`), vždycky je potřeba si ji jednou vytvořit a předávat si referenci tam, kde je to potřeba. Vytvářet instanci `DateFormatter`u v cyklu tedy není správný přístup. V ideálním případě si vytvoříme objekt, který bude mít daný `DateFormatter` jako statickou proměnnou a dále pracujeme s tímto obalovacím objektem.
 
 ```swift
 enum Formatters {
@@ -77,11 +60,16 @@ enum Formatters {
 }
 ```
 
-> Použití `enum`u jako obalovacího objektu je nejlepší řešení z hlediska výkonu, protože `enum`, který v sobě nemá žádné `case`s, nejde instancovat a tím máme tedy zajištěno, že `myDateFormatter` bude v celé aplikaci použit pouze jeden.
+> Použití `enum`u jako obalovacího objektu je nejlepší řešení z hlediska výkonu a bezpečnosti, protože `enum`, který v sobě nemá žádné `case`s, nejde instancovat a tím máme tedy zajištěno, že `myDateFormatter` bude v celé aplikaci použit pouze jeden.
 
-Když nastavujeme `DateFormatter`, je potřeba myslet na to, že mojí aplikaci může používat kdokoli na světě a různě po světě jsou různé konvence pro zobrazení času. Místo hardcodovaného `dateFormat`u je lepší použít metodu `formatter.setLocalizedDateFormatFromTemplate(_ template: String)`, které předám formatovací patterny pouze čisté bez oddělovačů a systém sám nastaví požadovaný formát podle nastavení v telefonu.
+Když nastavujeme `DateFormatter`, je potřeba myslet na to, že mojí aplikaci může používat kdokoli na světě a různě po světě jsou různé konvence pro zobrazení času. Místo hardcodovaného `dateFormat`u je lepší použít metodu `setLocalizedDateFormatFromTemplate(_ template: String)`, které předám formatovací patterny pouze čisté bez oddělovačů a systém sám nastaví požadovaný formát podle nastavení v telefonu.
 
-### `is` operátor
+Pokud tedy chci zobrazit den, měsíc a rok, nastavím `DateFormatter` následovně
+```swift
+formatter.setLocalizedDateFormatFromTemplate("ddMMyyyy")
+```
+
+## `is` operátor
 
 Zápis `if foo is Bar` je ekvivalentní s `if let _ = foo as? Bar`. Použití operátor `is` je nevýhodné, protože nám dá pouze informaci o tom, zda danou proměnnou `foo` je možné přetypovat na typ `Bar` bez toho, aniž by přetypování proběhlo.
 
@@ -111,9 +99,9 @@ nebo ještě lépe, pokud mám pouze jednu podtřídu
 guard let checkAnnotation = annotation as? MyAnnotation else { return nil }
 ```
 
-### Síla `enum`u
+## Síla `enum`u
 
-#### Pojmenovávání
+### Pojmenovávání
 
 Jednotlivé casy pojménovávme vždy malým počátečním písmenem
 
@@ -131,7 +119,7 @@ enum Gender {
 }
 ```
 
-#### Použití `rawValue`
+### Použití `rawValue`
 
 Pokud `enum`u přiřadím `rawValue` pomocí dědičnosti, např. `enum MyEnum: String`, musí potom jednotlivé `case`s mít k sobě přiřazenou hodnotu, které je neměnná a je stejného typu jako nadtřída. Pokud použijeme základní třídy jako je `String` nebo `Int`, kompilátor dokáže sám implicitně doplnit tyto hodnoty za nás. Hodnoty jsou potom stejné jako kdybychom si vypsali daný `case` jako řetězec.
 
@@ -151,7 +139,7 @@ enum Gender: String {
 }
 ```
 
-#### Přidávání funkcionality `enum`u
+### Přidávání funkcionality `enum`u
 
 `Enum` stejně jako `class`y a `struct`y lze funkčně rozširovat. Použití je například následující
 
@@ -176,7 +164,7 @@ let selectedGender: Gender = .other
 let image = selectedGender.image
 ```
 
-### Statický formulář pomocí `UITableView`
+## Statický formulář pomocí `UITableView`
 
 **Nikdy si nedržím samotné buňky!**
 
@@ -237,7 +225,7 @@ class Controller: UITableViewController {
 }
 ```
 
-### Přemýšlejte!
+## Přemýšlejte!
 
 ```swift
 struct User {
@@ -263,7 +251,7 @@ init(dictionary: [String: Any]) {
 }
 ```
 
-Stejná věc je při použití `nil-coalescing` opearátoru (`??`), pomocí kterého můžete nastavit defaultní hodnotu v případě, že hodnota nalevo od operátoru je `nil`.
+Stejná věc je při použití **nil-coalescing** opearátoru (`??`), pomocí kterého můžete nastavit defaultní hodnotu v případě, že hodnota nalevo od operátoru je `nil`.
 
 ```swift
 let username: String? = "username"
